@@ -1,0 +1,213 @@
+:root {
+  --background: #282a36;
+  --light-background: #343746;
+  --lighter-background: #424450;
+  --dark-background: #21222c;
+  --darker-background: #191a21;
+  --foreground: #f8f8f2;
+  --current-line: #44475a;
+  --comment: #6272a4;
+  --white: var(--foreground);
+  --red: #ff5555;
+  --orange: #ffb86c;
+  --yellow: #f1fa8c;
+  --green: #50fa7b;
+  --purple: #bd93f9;
+  --purple-hover: #bf93f988;
+  --cyan: #8be9fd;
+  --cyan-hover: #8be9fd88;
+  --pink: #ff79c6;
+  --pink-hover: #ff79c688;
+
+  --ls-tag-text-opacity: 0.8;
+  --ls-tag-text-hover-opacity: 0.8;
+  --ls-page-text-size: 14px;
+  --ls-page-title-size: 34px;
+  --ls-font-family: "FiraCode Nerd Font", "Fira Code", "Inter";
+}
+.dark-theme {
+  --ls-primary-background-color: var(--background);
+  --ls-secondary-background-color: var(--dark-background);
+  --ls-tertiary-background-color: var(--light-background);
+  --ls-quaternary-background-color: var(--light-background);
+
+  --ls-primary-text-color: var(--foreground);
+  --ls-secondary-text-color: var(--foreground);
+
+  --ls-search-background-color: var(--background);
+  --ls-border-color: var(--comment);
+  --ls-menu-hover-color: var(--light-background);
+
+  --ls-head-text-color: var(--foreground);
+  --ls-title-text-color: var(--foreground);
+  --ls-link-text-color: var(--pink);
+  --ls-link-text-hover-color: var(--pink-hover);
+  --ls-link-ref-text-color: var(--purple);
+  --ls-link-ref-text-hover-color: var(--purple-hover);
+  --ls-tag-text-color: var(--cyan);
+  --ls-tag-text-hover-color: var(--cyan-hover);
+
+  --ls-block-bullet-border-color: var(--current-line);
+  --ls-block-bullet-color: var(--foreground);
+  --ls-block-highlight-color: var(--current-line);
+  --ls-block-properties-background-color: var(--light-background);
+
+  --ls-page-checkbox-color: transparent;
+  --ls-page-checkbox-border-color: var(--comment);
+  --ls-page-blockquote-color: var(--foreground);
+  --ls-page-blockquote-bg-color: var(--light-background);
+  --ls-page-blockquote-border-color: var(--yellow);
+
+  --ls-page-inline-code-color: var(--orange);
+  --ls-page-inline-code-bg-color: var(--background);
+
+  --ls-scrollbar-color: var(--background);
+  --ls-scrollbar-thumb-hover-color: var(--light-background);
+
+  --ls-icon-color: var(--foreground);
+  --ls-search-icon-color: var(--foreground);
+  --ls-a-chosen-bg: var(--light-background);
+  --ls-right-sidebar-code-bg-color: var(--light-background);
+}
+
+html,
+body {
+  font-weight: 200;
+  letter-spacing: 0.002em;
+  line-height: 1.5;
+}
+
+i {
+  color: var(--yellow);
+}
+
+b {
+  color: var(--orange);
+}
+
+mark {
+  background-color: var(--yellow);
+}
+
+/*
+
+    Name:       dracula
+    Author:     Michael Kaminsky (http://github.com/mkaminsky11)
+    Adapted:    Sly Bouhafs
+
+
+    Original dracula color scheme by Zeno Rocha (https://github.com/zenorocha/dracula-theme)
+    Adapted to logseq
+
+*/
+
+.CodeMirror {
+  font-family: "FiraCode Nerd Font Mono", "Fire Code Mono", monospace;
+  line-height: 1.2;
+  background: var(--background);
+}
+
+.cm-s-default.CodeMirror,
+.cm-s-default .CodeMirror-gutters {
+  background-color: transparent;
+  color: var(--white) !important;
+  border: none;
+}
+
+.extensions__code-lang {
+  background: var(--light-background);
+}
+
+.cm-s-default.CodeMirror {
+  border: 5px solid var(--light-background);
+}
+
+.cm-s-default .CodeMirror-gutters {
+  color: var(--background);
+}
+.cm-s-default .CodeMirror-cursor {
+  border-left: solid thin var(--white);
+}
+.cm-s-default .CodeMirror-linenumber {
+  color: var(--comment);
+}
+.cm-s-default .CodeMirror-selected {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-default .CodeMirror-line {
+  box-shadow: none;
+}
+
+.cm-s-default .CodeMirror-line::selection,
+.cm-s-default .CodeMirror-line > span::selection,
+.cm-s-default .CodeMirror-line > span > span::selection {
+  background: rgba(255, 255, 255, 0.1);
+}
+.cm-s-default .CodeMirror-line::-moz-selection,
+.cm-s-default .CodeMirror-line > span::-moz-selection,
+.cm-s-default .CodeMirror-line > span > span::-moz-selection {
+  background: rgba(255, 255, 255, 0.1);
+}
+.cm-s-default span.cm-comment {
+  color: var(--comment);
+}
+.cm-s-default span.cm-string,
+.cm-s-default span.cm-string-2 {
+  color: var(--yellow);
+}
+.cm-s-default span.cm-number {
+  color: var(--purle);
+}
+.cm-s-default span.cm-variable {
+  color: var(--green);
+}
+.cm-s-default span.cm-variable-2 {
+  color: var(--white);
+}
+.cm-s-default span.cm-def {
+  color: var(--green);
+}
+.cm-s-default span.cm-operator {
+  color: var(--pink);
+}
+.cm-s-default span.cm-keyword {
+  color: var(--pink);
+}
+.cm-s-default span.cm-atom {
+  color: var(--purple);
+}
+.cm-s-default span.cm-meta {
+  color: var(--white);
+}
+.cm-s-default span.cm-tag {
+  color: var(--pink);
+}
+.cm-s-default span.cm-attribute {
+  color: var(--green);
+}
+.cm-s-default span.cm-qualifier {
+  color: var(--green);
+}
+.cm-s-default span.cm-property {
+  color: var(--cyan);
+}
+.cm-s-default span.cm-builtin {
+  color: var(--green);
+}
+.cm-s-default span.cm-variable-3,
+.cm-s-default span.cm-type {
+  color: var(--orange);
+}
+
+.cm-s-default .CodeMirror-activeline-background {
+  background: rgba(255, 255, 255, 0.1);
+}
+.cm-s-default .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: var(--white) !important;
+}
+
+#right-sidebar pre.CodeMirror-line {
+  background: transparent;
+}
