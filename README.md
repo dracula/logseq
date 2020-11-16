@@ -1,20 +1,20 @@
-# Dracula for [X](http://link-to-x.com)
+# Dracula for [Logseq](http://logseq.com)
 
-> A dark theme for [X](http://link-to-x.com).
+> A dark theme for [Logseq](http://logseq.com).
 
 ![Screenshot](./screenshot.png)
 
 ## Install
 
-All instructions can be found at [draculatheme.com/x](https://draculatheme.com/x).
+All instructions can be found at [draculatheme.com/logseq](https://draculatheme.com/logseq).
 
 ## Team
 
 This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/dracula/template/graphs/contributors).
 
-[![Zeno Rocha](https://github.com/zenorocha.png?size=100)](https://github.com/zenorocha) |
+[![Sly Bouhafs](https://github.com/slybouhafs.png?size=100)](https://github.com/slybouhafs) |
 --- |
-[Zeno Rocha](https://github.com/zenorocha) |
+[Sly Bouhafs](https://github.com/slybouhafs) |
 
 ## License
 
