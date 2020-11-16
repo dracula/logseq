@@ -6,7 +6,7 @@
 
 ## Install
 
-[//]: # (All instructions can be found at [draculatheme.com/logseq](https://draculatheme.com/logseq).)
+<!-- All instructions can be found at [draculatheme.com/logseq](https://draculatheme.com/logseq). --> 
 
 Copy the content of `custom.css` file into `logseq/custom.css` file in your notes repo.
 
