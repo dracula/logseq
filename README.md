@@ -12,7 +12,7 @@ Copy the content of `custom.css` file into `logseq/custom.css` file in your note
 
 ## Team
 
-This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/dracula/template/graphs/contributors).
+This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/slybouhafs/logseq-dracula/graphs/contributors).
 
 [![Sly Bouhafs](https://github.com/slybouhafs.png?size=100)](https://github.com/slybouhafs) |
 --- |
