@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Fira+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
 :root {
   --background: #282a36;
   --light-background: #343746;
@@ -21,15 +23,20 @@
 
   --ls-tag-text-opacity: 0.8;
   --ls-tag-text-hover-opacity: 0.8;
-  --ls-page-text-size: 14px;
-  --ls-page-title-size: 34px;
-  --ls-font-family: "FiraCode Nerd Font", "Fira Code", "Inter";
+  --ls-page-text-size: 16px;
+  --ls-page-title-size: 36px;
+  --ls-font-family: "Fira Sans";
+  --ls-font-weight: 300;
+  --ls-font-letter-spacing: 0.002em;
+  --ls-font-line-height: 1.5;
 }
+
 .dark-theme {
   --ls-primary-background-color: var(--background);
   --ls-secondary-background-color: var(--dark-background);
   --ls-tertiary-background-color: var(--light-background);
   --ls-quaternary-background-color: var(--light-background);
+  --ls-quinary-background-color: var(--darker-backround);
 
   --ls-primary-text-color: var(--foreground);
   --ls-secondary-text-color: var(--foreground);
@@ -54,6 +61,7 @@
 
   --ls-page-checkbox-color: transparent;
   --ls-page-checkbox-border-color: var(--comment);
+
   --ls-page-blockquote-color: var(--foreground);
   --ls-page-blockquote-bg-color: var(--light-background);
   --ls-page-blockquote-border-color: var(--yellow);
@@ -61,7 +69,8 @@
   --ls-page-inline-code-color: var(--orange);
   --ls-page-inline-code-bg-color: var(--background);
 
-  --ls-scrollbar-color: var(--background);
+  --ls-scrollbar-background-color: var(--background);
+  --ls-scrollbar-foreground-color: var(--darker-background);
   --ls-scrollbar-thumb-hover-color: var(--light-background);
 
   --ls-icon-color: var(--foreground);
@@ -72,9 +81,10 @@
 
 html,
 body {
-  font-weight: 200;
-  letter-spacing: 0.002em;
-  line-height: 1.5;
+  font-weight: var(--ls-font-weight);
+  letter-spacing: var(--ls-font-letter-spacing);
+  line-height: var(--ls-font-line-height);
+  font-size: var(--ls-page-text-size);
 }
 
 i {
@@ -91,18 +101,18 @@ mark {
 
 /*
 
-    Name:       dracula
+    Name:       dracula for CodeMirror
     Author:     Michael Kaminsky (http://github.com/mkaminsky11)
     Adapted:    Sly Bouhafs
 
 
     Original dracula color scheme by Zeno Rocha (https://github.com/zenorocha/dracula-theme)
-    Adapted to logseq
+    Adapted for logseq
 
 */
 
 .CodeMirror {
-  font-family: "FiraCode Nerd Font Mono", "Fire Code Mono", monospace;
+  font-family: "FiraCode Nerd Font", "Fire Code", monospace;
   line-height: 1.2;
   background: var(--background);
 }
