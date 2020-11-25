@@ -77,6 +77,7 @@
   --ls-search-icon-color: var(--foreground);
   --ls-a-chosen-bg: var(--light-background);
   --ls-right-sidebar-code-bg-color: var(--light-background);
+  --ls-selection-background-color: var(--comment);
 }
 
 html,
