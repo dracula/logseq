@@ -100,6 +100,14 @@ mark {
   background-color: var(--yellow);
 }
 
+.bg-orange-400 {
+  background-color: var(--orange);
+}
+
+.bg-green-600 {
+  background-color: var(--green);
+}
+
 /*
 
     Name:       dracula for CodeMirror
