@@ -1,17 +1,15 @@
-### [X](http://link-to-x.com)
+### [logseq](http://logseq.com)
 
 #### Install using Git
 
-If you are a git user, you can install the theme and keep up to date by cloning the repo:
-
-    $ git clone https://github.com/dracula/template.git
+Comming soon.
 
 #### Install manually
 
-Download using the [GitHub .zip download](https://github.com/dracula/template/archive/master.zip) option and unzip them.
+Copy the content of `custom.css` file into the `logseq/custom.css` file in your notes repo.
 
 #### Activating theme
 
-1. Do this
-2. Then that
+1. Open the side bar
+2. Click on dark theme
 3. Boom! It's working
