@@ -2,7 +2,7 @@
 
 #### Install using Git
 
-Comming soon.
+Coming soon.
 
 #### Install manually
 
