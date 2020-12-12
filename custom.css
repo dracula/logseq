@@ -29,6 +29,9 @@
   --ls-font-weight: 300;
   --ls-font-letter-spacing: 0.002em;
   --ls-font-line-height: 1.5;
+
+  --ls-border-radius-low: 3px;
+  --ls-border-radius-medium: 6px;
 }
 
 .dark-theme {
@@ -37,6 +40,9 @@
   --ls-tertiary-background-color: var(--light-background);
   --ls-quaternary-background-color: var(--light-background);
   --ls-quinary-background-color: var(--darker-backround);
+
+  --ls-active-primary-color: var(--foreground);
+  --ls-active-secondary-color: var(--foreground);
 
   --ls-primary-text-color: var(--foreground);
   --ls-secondary-text-color: var(--foreground);
@@ -79,6 +85,7 @@
   --ls-right-sidebar-code-bg-color: var(--light-background);
   --ls-selection-background-color: var(--comment);
   --ls-slide-background-color: var(--ls-primary-background-color);
+  --ls-guideline-color: var(--ls-border-color);
 }
 
 html,
@@ -107,6 +114,10 @@ mark {
 
 .bg-green-600 {
   background-color: var(--green);
+}
+
+.dark-theme .form-checkbox {
+  border: 1px solid var(--ls-page-checkbox-border-color);
 }
 
 /*
