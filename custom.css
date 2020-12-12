@@ -120,6 +120,15 @@ mark {
   border: 1px solid var(--ls-page-checkbox-border-color);
 }
 
+.external-link {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.external-link:hover {
+  color: var(--cyan-hover);
+}
+
 /*
 
     Name:       dracula for CodeMirror
