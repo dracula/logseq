@@ -39,7 +39,7 @@
   --ls-secondary-background-color: var(--dark-background);
   --ls-tertiary-background-color: var(--light-background);
   --ls-quaternary-background-color: var(--light-background);
-  --ls-quinary-background-color: var(--darker-backround);
+  --ls-quinary-background-color: var(--darker-background);
 
   --ls-active-primary-color: var(--foreground);
   --ls-active-secondary-color: var(--foreground);
@@ -55,10 +55,10 @@
   --ls-title-text-color: var(--foreground);
   --ls-link-text-color: var(--pink);
   --ls-link-text-hover-color: var(--pink-hover);
-  --ls-link-ref-text-color: var(--purple);
-  --ls-link-ref-text-hover-color: var(--purple-hover);
-  --ls-tag-text-color: var(--cyan);
-  --ls-tag-text-hover-color: var(--cyan-hover);
+  --ls-link-ref-text-color: var(--pink);
+  --ls-link-ref-text-hover-color: var(--pink-hover);
+  --ls-tag-text-color: var(--purple);
+  --ls-tag-text-hover-color: var(--purple-hover);
 
   --ls-block-bullet-border-color: var(--current-line);
   --ls-block-bullet-color: var(--foreground);
@@ -94,6 +94,7 @@ body {
   letter-spacing: var(--ls-font-letter-spacing);
   line-height: var(--ls-font-line-height);
   font-size: var(--ls-page-text-size);
+  background-color: #282a36;
 }
 
 i {
@@ -117,7 +118,7 @@ mark {
 }
 
 .dark-theme .form-checkbox {
-  border: 1px solid var(--ls-page-checkbox-border-color);
+  border: 1px solid var(--ls-page-checkbox-border-color) !important;
 }
 
 .external-link {
