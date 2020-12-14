@@ -119,6 +119,7 @@ mark {
 
 .dark-theme .form-checkbox {
   border: 1px solid var(--ls-page-checkbox-border-color) !important;
+  border-radius: var(--ls-border-radius-low) !important;
 }
 
 .external-link {
