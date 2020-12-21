@@ -10,16 +10,17 @@
   --current-line: #44475a;
   --comment: #6272a4;
   --white: var(--foreground);
+  --white-hover: #f8f8f280;
   --red: #ff5555;
   --orange: #ffb86c;
   --yellow: #f1fa8c;
   --green: #50fa7b;
   --purple: #bd93f9;
-  --purple-hover: #bf93f988;
+  --purple-hover: #bf93f980;
   --cyan: #8be9fd;
-  --cyan-hover: #8be9fd88;
+  --cyan-hover: #8be9fd80;
   --pink: #ff79c6;
-  --pink-hover: #ff79c688;
+  --pink-hover: #ff79c680;
 
   --ls-tag-text-opacity: 0.8;
   --ls-tag-text-hover-opacity: 0.8;
@@ -45,7 +46,7 @@
   --ls-active-secondary-color: var(--foreground);
 
   --ls-primary-text-color: var(--foreground);
-  --ls-secondary-text-color: var(--foreground);
+  --ls-secondary-text-color: var(--white-hover);
 
   --ls-search-background-color: var(--background);
   --ls-border-color: var(--comment);
@@ -80,8 +81,8 @@
   --ls-scrollbar-foreground-color: var(--darker-background);
   --ls-scrollbar-thumb-hover-color: var(--light-background);
 
-  --ls-icon-color: var(--foreground);
-  --ls-search-icon-color: var(--foreground);
+  --ls-icon-color: var(--white-hover);
+  --ls-search-icon-color: var(--white-hover);
   --ls-a-chosen-bg: var(--light-background);
   --ls-right-sidebar-code-bg-color: var(--light-background);
   --ls-selection-background-color: var(--comment);
