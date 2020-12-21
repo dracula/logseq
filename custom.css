@@ -127,6 +127,7 @@ mark {
 .external-link {
   color: var(--cyan);
   text-decoration: none;
+  border-bottom: none;
 }
 
 .external-link:hover {
