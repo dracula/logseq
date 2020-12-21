@@ -133,6 +133,15 @@ mark {
   color: var(--cyan-hover);
 }
 
+.ls-block h1,
+.ls-block h2,
+.ls-block h3,
+.ls-block h4,
+.ls-block h5,
+.ls-block h6 {
+  font-weight: 400;
+}
+
 /*
 
     Name:       dracula for CodeMirror
