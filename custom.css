@@ -50,6 +50,7 @@
   --ls-search-background-color: var(--background);
   --ls-border-color: var(--comment);
   --ls-menu-hover-color: var(--light-background);
+  --ls-table-tr-even-background-color: var(--light-background);
 
   --ls-head-text-color: var(--foreground);
   --ls-title-text-color: var(--foreground);
