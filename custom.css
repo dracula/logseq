@@ -55,10 +55,14 @@
 
   --ls-head-text-color: var(--foreground);
   --ls-title-text-color: var(--foreground);
+
   --ls-link-text-color: var(--pink);
   --ls-link-text-hover-color: var(--pink-hover);
+
   --ls-link-ref-text-color: var(--pink);
   --ls-link-ref-text-hover-color: var(--pink-hover);
+  --ls-block-ref-link-text-color: var(--ls-border-color);
+
   --ls-tag-text-color: var(--purple);
   --ls-tag-text-hover-color: var(--purple-hover);
 
