@@ -35,7 +35,8 @@
   --ls-border-radius-medium: 6px;
 }
 
-.dark-theme {
+.dark-theme,
+html[data-theme="dark"] {
   --ls-primary-background-color: var(--background);
   --ls-secondary-background-color: var(--dark-background);
   --ls-tertiary-background-color: var(--light-background);
