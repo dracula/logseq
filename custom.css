@@ -124,6 +124,10 @@ mark {
   background-color: var(--green);
 }
 
+.bg-red-500 {
+  background-color: var(--red);
+}
+
 .dark-theme .form-checkbox {
   border: 1px solid var(--ls-page-checkbox-border-color) !important;
   border-radius: var(--ls-border-radius-low) !important;
@@ -148,11 +152,35 @@ mark {
   font-weight: 400;
 }
 
+/* Priority tag styling */
+.priority {
+  color: var(--ls-tag-text-color);
+  opacity: 1 !important;
+}
+
+.priority:hover,
+a.tooltip-priority:hover {
+  color: var(--ls-tag-text-hover-color);
+  opacity: 0.5;
+}
+
+a.tooltip-priority {
+  color: var(--ls-tag-text-color);
+}
+
+.Tooltip__label {
+  background: var(--ls-quinary-background-color);
+}
+
+.Tooltip__label::after {
+  border-bottom-color: var(--ls-quinary-background-color);
+}
+
 /*
 
-    Name:       dracula for CodeMirror
+    Name:       Dracula for CodeMirror
     Author:     Michael Kaminsky (http://github.com/mkaminsky11)
-    Adapted:    Sly Bouhafs
+    Adapted by:    Sly Bouhafs
 
 
     Original dracula color scheme by Zeno Rocha (https://github.com/zenorocha/dracula-theme)
