@@ -143,6 +143,7 @@ mark {
   color: var(--cyan-hover);
 }
 
+h1.title,
 .ls-block h1,
 .ls-block h2,
 .ls-block h3,
