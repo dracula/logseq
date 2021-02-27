@@ -8,8 +8,15 @@
 
 <!-- All instructions can be found at [draculatheme.com/logseq](https://draculatheme.com/logseq). --> 
 
-Copy the content of `custom.css` file into `logseq/custom.css` file in your notes repo.
+##### Offline install:
 
+- Copy the content of `custom.css` into `logseq/custom.css` in your notes repo if you want to have the theme available without internet connection.
+
+##### Online install:
+
+- Paste this line to your `logseq/custom.css` file:
+  `@import url('https://raw.githack.com/dracula/logseq/master/custom.css');`
+  
 ## Team
 
 This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/slybouhafs/logseq-dracula/graphs/contributors).
