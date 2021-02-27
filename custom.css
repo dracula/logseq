@@ -51,6 +51,7 @@ html[data-theme="dark"] {
 
   --ls-search-background-color: var(--background);
   --ls-border-color: var(--comment);
+  --ls-secondary-border-color: var(--ls-border-color);
   --ls-menu-hover-color: var(--light-background);
   --ls-table-tr-even-background-color: var(--light-background);
 
@@ -175,6 +176,11 @@ a.tooltip-priority {
 
 .Tooltip__label::after {
   border-bottom-color: var(--ls-quinary-background-color);
+}
+
+.page-reference .bracket {
+  color: var(--ls-border-color);
+  opacity: 0.8;
 }
 
 /*
