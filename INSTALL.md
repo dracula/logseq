@@ -9,12 +9,12 @@ Coming soon.
 
 ##### Offline install:
 
-- Copy the content of `custom.css` file into `logseq/custom.css` file in your notes repo if you want to have the theme available without internet connection.
+- Copy the content of `custom.css` into `logseq/custom.css` in your notes repo if you want to have the theme available without internet connection.
 
 ##### Online install:
 
-- add this line to your `logseq/custom.css` file:
-  `@import url('https://raw.githack.com/dracula/logseq/master/custom.css')`
+- Paste this line to your `logseq/custom.css` file:
+  `@import url('https://raw.githack.com/dracula/logseq/master/custom.css');`
 
 #### Activating theme
 
