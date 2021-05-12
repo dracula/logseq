@@ -6,16 +6,17 @@
 
 ## Install
 
-<!-- All instructions can be found at [draculatheme.com/logseq](https://draculatheme.com/logseq). --> 
+All instructions can be also found at [draculatheme.com/logseq](https://draculatheme.com/logseq).
 
 ##### Offline install:
 
-- Copy the content of `custom.css` into `logseq/custom.css` in your notes repo if you want to have the theme available without internet connection.
+- Copy the content of `custom.css` into `logseq/custom.css` in your notes repo if you want to have the theme available without an internet connection.
 
 ##### Online install:
 
 - Paste this line to your `logseq/custom.css` file:
-  `@import url('https://raw.githack.com/dracula/logseq/master/custom.css');`
+- `@import url('https://raw.githack.com/dracula/logseq/master/custom.css');`
+- You're done! 
   
 ## Team
 
