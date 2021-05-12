@@ -94,6 +94,11 @@ html[data-theme="dark"] {
   --ls-selection-background-color: var(--comment);
   --ls-slide-background-color: var(--ls-primary-background-color);
   --ls-guideline-color: var(--ls-border-color);
+  --color-level-1: var(--ls-secondary-background-color);
+  --color-level-2: var(--ls-primary-background-color);
+  --color-level-3: var(--ls-quaternary-background-color);
+  --color-level-4: var(--ls-tertiary-background-color);
+  --color-level-5: var(--ls-quinary-background-color);
 }
 
 html,
