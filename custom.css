@@ -79,7 +79,7 @@ html[data-theme="dark"] {
   --ls-page-blockquote-color: var(--foreground);
   --ls-page-blockquote-bg-color: var(--light-background);
   --ls-page-blockquote-border-color: var(--yellow);
-  --ls-page-properties-background-color: var(--light-background)
+  --ls-page-properties-background-color: var(--light-background);
 
   --ls-page-inline-code-color: var(--orange);
   --ls-page-inline-code-bg-color: var(--background);
