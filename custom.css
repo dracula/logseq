@@ -208,7 +208,7 @@ html[data-theme="dark"] .CodeMirror {
 }
 
 html[data-theme="dark"] .cm-s-default.CodeMirror,
-html[data-theme="dark"] .cm-s-default .CodeMirror-gutters {
+html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
   background-color: transparent;
   color: var(--white) !important;
   border: none;
@@ -218,29 +218,29 @@ html[data-theme="dark"] .extensions__code-lang {
   background: var(--light-background);
 }
 
-html[data-theme="dark"] .cm-s-default.CodeMirror {
+html[data-theme="dark"] .CodeMirror .CodeMirror {
   border: 5px solid var(--light-background);
 }
 
-html[data-theme="dark"] .cm-s-default .CodeMirror-gutters {
+html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
   color: var(--background);
 }
-html[data-theme="dark"] .cm-s-default .CodeMirror-cursor {
+html[data-theme="dark"] .CodeMirror .CodeMirror-cursor {
   border-left: solid thin var(--white);
 }
-html[data-theme="dark"] .cm-s-default .CodeMirror-linenumber {
+html[data-theme="dark"] .CodeMirror .CodeMirror-linenumber {
   color: var(--comment);
 }
-html[data-theme="dark"] .cm-s-default .CodeMirror-selected {
+html[data-theme="dark"] .CodeMirror .CodeMirror-selected {
   background: rgba(255, 255, 255, 0.1);
 }
 
-html[data-theme="dark"] .cm-s-default .CodeMirror-line {
+html[data-theme="dark"] .CodeMirror .CodeMirror-line {
   box-shadow: none;
 }
 
-html[data-theme="dark"] .cm-s-default .CodeMirror-line::selection,
-html[data-theme="dark"] .cm-s-default .CodeMirror-line > span::selection,
+html[data-theme="dark"] .CodeMirror .CodeMirror-line::selection,
+html[data-theme="dark"] .CodeMirror .CodeMirror-line > span::selection,
 html[data-theme="dark"]
   .cm-s-default
   .CodeMirror-line
@@ -248,8 +248,8 @@ html[data-theme="dark"]
   > span::selection {
   background: rgba(255, 255, 255, 0.1);
 }
-html[data-theme="dark"] .cm-s-default .CodeMirror-line::-moz-selection,
-html[data-theme="dark"] .cm-s-default .CodeMirror-line > span::-moz-selection,
+html[data-theme="dark"] .CodeMirror .CodeMirror-line::-moz-selection,
+html[data-theme="dark"] .CodeMirror .CodeMirror-line > span::-moz-selection,
 html[data-theme="dark"]
   .cm-s-default
   .CodeMirror-line
@@ -257,61 +257,61 @@ html[data-theme="dark"]
   > span::-moz-selection {
   background: rgba(255, 255, 255, 0.1);
 }
-html[data-theme="dark"] .cm-s-default span.cm-comment {
+html[data-theme="dark"] .CodeMirror span.cm-comment {
   color: var(--comment);
 }
-html[data-theme="dark"] .cm-s-default span.cm-string,
-html[data-theme="dark"] .cm-s-default span.cm-string-2 {
+html[data-theme="dark"] .CodeMirror span.cm-string,
+html[data-theme="dark"] .CodeMirror span.cm-string-2 {
   color: var(--yellow);
 }
-html[data-theme="dark"] .cm-s-default span.cm-number {
+html[data-theme="dark"] .CodeMirror span.cm-number {
   color: var(--purle);
 }
-html[data-theme="dark"] .cm-s-default span.cm-variable {
+html[data-theme="dark"] .CodeMirror span.cm-variable {
   color: var(--green);
 }
-html[data-theme="dark"] .cm-s-default span.cm-variable-2 {
+html[data-theme="dark"] .CodeMirror span.cm-variable-2 {
   color: var(--white);
 }
-html[data-theme="dark"] .cm-s-default span.cm-def {
+html[data-theme="dark"] .CodeMirror span.cm-def {
   color: var(--green);
 }
-html[data-theme="dark"] .cm-s-default span.cm-operator {
+html[data-theme="dark"] .CodeMirror span.cm-operator {
   color: var(--pink);
 }
-html[data-theme="dark"] .cm-s-default span.cm-keyword {
+html[data-theme="dark"] .CodeMirror span.cm-keyword {
   color: var(--pink);
 }
-html[data-theme="dark"] .cm-s-default span.cm-atom {
+html[data-theme="dark"] .CodeMirror span.cm-atom {
   color: var(--purple);
 }
-html[data-theme="dark"] .cm-s-default span.cm-meta {
+html[data-theme="dark"] .CodeMirror span.cm-meta {
   color: var(--white);
 }
-html[data-theme="dark"] .cm-s-default span.cm-tag {
+html[data-theme="dark"] .CodeMirror span.cm-tag {
   color: var(--pink);
 }
-html[data-theme="dark"] .cm-s-default span.cm-attribute {
+html[data-theme="dark"] .CodeMirror span.cm-attribute {
   color: var(--green);
 }
-html[data-theme="dark"] .cm-s-default span.cm-qualifier {
+html[data-theme="dark"] .CodeMirror span.cm-qualifier {
   color: var(--green);
 }
-html[data-theme="dark"] .cm-s-default span.cm-property {
+html[data-theme="dark"] .CodeMirror span.cm-property {
   color: var(--cyan);
 }
-html[data-theme="dark"] .cm-s-default span.cm-builtin {
+html[data-theme="dark"] .CodeMirror span.cm-builtin {
   color: var(--green);
 }
-html[data-theme="dark"] .cm-s-default span.cm-variable-3,
-html[data-theme="dark"] .cm-s-default span.cm-type {
+html[data-theme="dark"] .CodeMirror span.cm-variable-3,
+html[data-theme="dark"] .CodeMirror span.cm-type {
   color: var(--orange);
 }
 
-html[data-theme="dark"] .cm-s-default .CodeMirror-activeline-background {
+html[data-theme="dark"] .CodeMirror .CodeMirror-activeline-background {
   background: rgba(255, 255, 255, 0.1);
 }
-html[data-theme="dark"] .cm-s-default .CodeMirror-matchingbracket {
+html[data-theme="dark"] .CodeMirror .CodeMirror-matchingbracket {
   text-decoration: underline;
   color: var(--white) !important;
 }
