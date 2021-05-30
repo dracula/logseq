@@ -79,6 +79,7 @@ html[data-theme="dark"] {
   --ls-page-blockquote-color: var(--foreground);
   --ls-page-blockquote-bg-color: var(--light-background);
   --ls-page-blockquote-border-color: var(--yellow);
+  --ls-page-properties-background-color: var(--light-background);
 
   --ls-page-inline-code-color: var(--orange);
   --ls-page-inline-code-bg-color: var(--background);
@@ -163,12 +164,37 @@ h1.title,
 .priority {
   color: var(--ls-tag-text-color);
   opacity: 1 !important;
+  font-size: 0px; /* Hide text */
 }
 
 .priority:hover,
 a.tooltip-priority:hover {
   color: var(--ls-tag-text-hover-color);
   opacity: 0.5;
+}
+
+a.priority[href="#/page/A"]:before {
+  content: "A";
+  background: var(--red);
+}
+
+a.priority[href="#/page/B"]:before {
+  content: "B";
+  background: var(--yellow);
+}
+
+a.priority[href="#/page/C"]:before {
+  content: "C";
+  background: var(--green);
+}
+
+a.priority:before {
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 1px 4px 0px 3px;
+  margin: 0px 2px 0px 0px;
+  border-radius: var(--ls-border-radius-low);
+  color: var(--ls-primary-background-color);
 }
 
 a.tooltip-priority {
@@ -188,6 +214,19 @@ a.tooltip-priority {
   opacity: 0.8;
 }
 
+a.tag {
+  background: var(--purple);
+  border-radius: 3px 3px 3px 3px;
+  padding: 0px 3px;
+  color: var(--dark-background);
+  font-weight: 400;
+}
+
+a.tag:hover {
+  background: transparent;
+  color: (--purple);
+}
+
 /*
 
     Name:       Dracula for CodeMirror
@@ -200,113 +239,124 @@ a.tooltip-priority {
 
 */
 
-.CodeMirror {
+html[data-theme="dark"] .CodeMirror {
   font-family: "FiraCode Nerd Font", "Fire Code", monospace;
   line-height: 1.2;
   background: var(--background);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  color: var(--white);
 }
 
-.cm-s-default.CodeMirror,
-.cm-s-default .CodeMirror-gutters {
+html[data-theme="dark"] .cm-s-default .CodeMirror,
+html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
   background-color: transparent;
   color: var(--white) !important;
   border: none;
 }
 
-.extensions__code-lang {
+html[data-theme="dark"] .extensions__code-lang {
   background: var(--light-background);
 }
 
-.cm-s-default.CodeMirror {
+html[data-theme="dark"] .CodeMirror {
   border: 5px solid var(--light-background);
 }
 
-.cm-s-default .CodeMirror-gutters {
+html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
   color: var(--background);
 }
-.cm-s-default .CodeMirror-cursor {
+html[data-theme="dark"] .CodeMirror .CodeMirror-cursor {
   border-left: solid thin var(--white);
 }
-.cm-s-default .CodeMirror-linenumber {
+html[data-theme="dark"] .CodeMirror .CodeMirror-linenumber {
   color: var(--comment);
 }
-.cm-s-default .CodeMirror-selected {
+html[data-theme="dark"] .CodeMirror .CodeMirror-selected {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.cm-s-default .CodeMirror-line {
+html[data-theme="dark"] .CodeMirror .CodeMirror-line {
   box-shadow: none;
 }
 
-.cm-s-default .CodeMirror-line::selection,
-.cm-s-default .CodeMirror-line > span::selection,
-.cm-s-default .CodeMirror-line > span > span::selection {
+html[data-theme="dark"] .CodeMirror .CodeMirror-line::selection,
+html[data-theme="dark"] .CodeMirror .CodeMirror-line > span::selection,
+html[data-theme="dark"]
+  .cm-s-default
+  .CodeMirror-line
+  > span
+  > span::selection {
   background: rgba(255, 255, 255, 0.1);
 }
-.cm-s-default .CodeMirror-line::-moz-selection,
-.cm-s-default .CodeMirror-line > span::-moz-selection,
-.cm-s-default .CodeMirror-line > span > span::-moz-selection {
+html[data-theme="dark"] .CodeMirror .CodeMirror-line::-moz-selection,
+html[data-theme="dark"] .CodeMirror .CodeMirror-line > span::-moz-selection,
+html[data-theme="dark"]
+  .cm-s-default
+  .CodeMirror-line
+  > span
+  > span::-moz-selection {
   background: rgba(255, 255, 255, 0.1);
 }
-.cm-s-default span.cm-comment {
+html[data-theme="dark"] .CodeMirror span.cm-comment {
   color: var(--comment);
 }
-.cm-s-default span.cm-string,
-.cm-s-default span.cm-string-2 {
+html[data-theme="dark"] .CodeMirror span.cm-string,
+html[data-theme="dark"] .CodeMirror span.cm-string-2 {
   color: var(--yellow);
 }
-.cm-s-default span.cm-number {
+html[data-theme="dark"] .CodeMirror span.cm-number {
   color: var(--purle);
 }
-.cm-s-default span.cm-variable {
+html[data-theme="dark"] .CodeMirror span.cm-variable {
   color: var(--green);
 }
-.cm-s-default span.cm-variable-2 {
+html[data-theme="dark"] .CodeMirror span.cm-variable-2 {
   color: var(--white);
 }
-.cm-s-default span.cm-def {
+html[data-theme="dark"] .CodeMirror span.cm-def {
   color: var(--green);
 }
-.cm-s-default span.cm-operator {
+html[data-theme="dark"] .CodeMirror span.cm-operator {
   color: var(--pink);
 }
-.cm-s-default span.cm-keyword {
+html[data-theme="dark"] .CodeMirror span.cm-keyword {
   color: var(--pink);
 }
-.cm-s-default span.cm-atom {
+html[data-theme="dark"] .CodeMirror span.cm-atom {
   color: var(--purple);
 }
-.cm-s-default span.cm-meta {
+html[data-theme="dark"] .CodeMirror span.cm-meta {
   color: var(--white);
 }
-.cm-s-default span.cm-tag {
+html[data-theme="dark"] .CodeMirror span.cm-tag {
   color: var(--pink);
 }
-.cm-s-default span.cm-attribute {
+html[data-theme="dark"] .CodeMirror span.cm-attribute {
   color: var(--green);
 }
-.cm-s-default span.cm-qualifier {
+html[data-theme="dark"] .CodeMirror span.cm-qualifier {
   color: var(--green);
 }
-.cm-s-default span.cm-property {
+html[data-theme="dark"] .CodeMirror span.cm-property {
   color: var(--cyan);
 }
-.cm-s-default span.cm-builtin {
+html[data-theme="dark"] .CodeMirror span.cm-builtin {
   color: var(--green);
 }
-.cm-s-default span.cm-variable-3,
-.cm-s-default span.cm-type {
+html[data-theme="dark"] .CodeMirror span.cm-variable-3,
+html[data-theme="dark"] .CodeMirror span.cm-type {
   color: var(--orange);
 }
 
-.cm-s-default .CodeMirror-activeline-background {
+html[data-theme="dark"] .CodeMirror .CodeMirror-activeline-background {
   background: rgba(255, 255, 255, 0.1);
 }
-.cm-s-default .CodeMirror-matchingbracket {
+html[data-theme="dark"] .CodeMirror .CodeMirror-matchingbracket {
   text-decoration: underline;
   color: var(--white) !important;
 }
 
-#right-sidebar pre.CodeMirror-line {
+html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
   background: transparent;
 }
