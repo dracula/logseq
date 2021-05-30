@@ -190,15 +190,17 @@ a.tooltip-priority {
 }
 
 a.tag {
-    background: var(--purple);
-    border-radius: 3px 3px 3px 3px;
-    padding: 0px 3px;
-    color: var(--dark-background);
-    font-weight: 400;
+  background: var(--purple);
+  border-radius: 3px 3px 3px 3px;
+  padding: 0px 3px;
+  color: var(--dark-background);
+  font-weight: 400;
 }
+
 a.tag:hover {
-      background: transparent;
-      co
+  background: transparent;
+  color: (--purple);
+}
 
 /*
 
