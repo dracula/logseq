@@ -218,9 +218,12 @@ html[data-theme="dark"] .CodeMirror {
   font-family: "FiraCode Nerd Font", "Fire Code", monospace;
   line-height: 1.2;
   background: var(--background);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  color: var(--white);
 }
 
-html[data-theme="dark"] .cm-s-default.CodeMirror,
+html[data-theme="dark"] .cm-s-default .CodeMirror,
 html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
   background-color: transparent;
   color: var(--white) !important;
@@ -231,7 +234,7 @@ html[data-theme="dark"] .extensions__code-lang {
   background: var(--light-background);
 }
 
-html[data-theme="dark"] .CodeMirror .CodeMirror {
+html[data-theme="dark"] .CodeMirror {
   border: 5px solid var(--light-background);
 }
 
