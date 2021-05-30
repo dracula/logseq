@@ -189,6 +189,17 @@ a.tooltip-priority {
   opacity: 0.8;
 }
 
+a.tag {
+    background: var(--purple);
+    border-radius: 3px 3px 3px 3px;
+    padding: 0px 3px;
+    color: var(--dark-background);
+    font-weight: 400;
+}
+a.tag:hover {
+      background: transparent;
+      co
+
 /*
 
     Name:       Dracula for CodeMirror
