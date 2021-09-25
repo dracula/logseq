@@ -1,0 +1,16 @@
+{
+    "name": "logseq-dracula-theme",
+    "description": "🧛 Dark theme for Logseq.",
+    "author": "slybouhafs",
+    "repo": "dracula/logseq",
+    "logseq": {
+      "themes": [
+        {
+          "name": "Dracula theme",
+          "url": "./custom.css",
+          "description": "🧛 Dark theme for Logseq.",
+          "mode": "dark"
+        }
+     ]
+    }
+  }
