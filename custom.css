@@ -360,3 +360,7 @@ html[data-theme="dark"] .CodeMirror .CodeMirror-matchingbracket {
 html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
   background: transparent;
 }
+
+.ti {
+  color: var(--ls-icon-color);
+}
