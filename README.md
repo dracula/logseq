@@ -16,7 +16,9 @@ All instructions can be also found at [draculatheme.com/logseq](https://draculat
 
 - Paste this line to your `logseq/custom.css` file:
 - `@import url('https://cdn.jsdelivr.net/gh/dracula/logseq@latest/custom.css');`
+
 OR
+
 - Paste this line to your `logseq/config.edn` file:
 - `:custom-css-url "@import url('https://cdn.jsdelivr.net/gh/dracula/logseq@latest/custom.css');"`
   
