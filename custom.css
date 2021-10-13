@@ -361,6 +361,12 @@ html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
   background: transparent;
 }
 
+/* Changes all icons to the same color */
 .ti {
+  color: var(--ls-icon-color);
+}
+
+/* Changes sidebar link colors to the same color as the icons */
+.left-sidebar-inner a.item > span {
   color: var(--ls-icon-color);
 }
