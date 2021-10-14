@@ -15,12 +15,12 @@ All instructions can be also found at [draculatheme.com/logseq](https://draculat
 ### Online install:
 
 - Paste this line to your `logseq/custom.css` file:
-- `@import url('https://cdn.jsdelivr.net/gh/dracula/logseq@latest/custom.css');`
+- `@import url('https://cdn.jsdelivr.net/gh/dracula/logseq@master/custom.css');`
 
 OR
 
 - Paste this line to your `logseq/config.edn` file:
-- `:custom-css-url "@import url('https://cdn.jsdelivr.net/gh/dracula/logseq@latest/custom.css');"`
+- `:custom-css-url "@import url('https://cdn.jsdelivr.net/gh/dracula/logseq@master/custom.css');"`
   
 ## Team
 
