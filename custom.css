@@ -135,7 +135,7 @@ mark {
   background-color: var(--red);
 }
 
-.dark-theme .form-checkbox {
+.form-checkbox {
   border: 1px solid var(--ls-page-checkbox-border-color) !important;
   border-radius: var(--ls-border-radius-low) !important;
 }
