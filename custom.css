@@ -117,6 +117,7 @@ i {
 
 b {
   color: var(--orange);
+  font-weight: bold;
 }
 
 mark {
