@@ -81,7 +81,7 @@ html[data-theme="dark"] {
   --ls-page-blockquote-border-color: var(--yellow);
   --ls-page-properties-background-color: var(--light-background);
 
-  --ls-page-inline-code-color: var(--orange);
+  --ls-page-inline-code-color: var(--green);
   --ls-page-inline-code-bg-color: var(--background);
 
   --ls-scrollbar-background-color: var(--background);
@@ -158,6 +158,7 @@ h1.title,
 .ls-block h4,
 .ls-block h5,
 .ls-block h6 {
+  color: var(--purple);
   font-weight: bold;
 }
 
@@ -216,7 +217,7 @@ a.tooltip-priority {
 }
 
 a.tag {
-  background: var(--purple);
+  background: var(--pink);
   border-radius: 3px 3px 3px 3px;
   padding: 0px 3px;
   color: var(--dark-background);
@@ -225,7 +226,7 @@ a.tag {
 
 a.tag:hover {
   background: transparent;
-  color: (--purple);
+  color: var(--pink-hover);
 }
 
 /*
