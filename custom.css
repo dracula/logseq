@@ -27,7 +27,7 @@
   --ls-page-text-size: 16px;
   --ls-page-title-size: 36px;
   --ls-font-family: "Fira Sans";
-  --ls-font-weight: 300;
+  --ls-font-weight: normal;
   --ls-font-letter-spacing: 0.002em;
   --ls-font-line-height: 1.5;
 
@@ -158,7 +158,7 @@ h1.title,
 .ls-block h4,
 .ls-block h5,
 .ls-block h6 {
-  font-weight: 400;
+  font-weight: bold;
 }
 
 /* Priority tag styling */
@@ -191,7 +191,7 @@ a.priority[href="#/page/C"]:before {
 
 a.priority:before {
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: normal;
   padding: 1px 4px 0px 3px;
   margin: 0px 2px 0px 0px;
   border-radius: var(--ls-border-radius-low);
@@ -220,7 +220,7 @@ a.tag {
   border-radius: 3px 3px 3px 3px;
   padding: 0px 3px;
   color: var(--dark-background);
-  font-weight: 400;
+  font-weight: normal;
 }
 
 a.tag:hover {
