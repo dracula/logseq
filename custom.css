@@ -120,6 +120,11 @@ b {
   font-weight: bold;
 }
 
+ol li::marker,
+ul li::marker {
+  color: var(--cyan);
+}
+
 mark {
   background-color: var(--yellow);
 }
