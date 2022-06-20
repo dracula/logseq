@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 :root {
   --background: #282a36;
@@ -117,7 +117,7 @@ i {
 
 b {
   color: var(--orange);
-  font-weight: bold;
+  font-weight: 700;
 }
 
 ol li::marker,
@@ -164,7 +164,7 @@ h1.title,
 .ls-block h5,
 .ls-block h6 {
   color: var(--purple);
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* Priority tag styling */
@@ -197,7 +197,7 @@ a.priority[href="#/page/C"]:before {
 
 a.priority:before {
   font-size: 0.9rem;
-  font-weight: normal;
+  font-weight: 400;
   padding: 1px 4px 0px 3px;
   margin: 0px 2px 0px 0px;
   border-radius: var(--ls-border-radius-low);
@@ -226,7 +226,7 @@ a.tag {
   border-radius: 3px 3px 3px 3px;
   padding: 0px 3px;
   color: var(--dark-background);
-  font-weight: normal;
+  font-weight: 400;
 }
 
 a.tag:hover {
