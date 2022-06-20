@@ -106,7 +106,7 @@ html[data-theme="dark"] {
 
 html,
 body {
-  font-weight: var(--ls-font-weight);
+  font-weight: var(--ls-font-weight-light);
   letter-spacing: var(--ls-font-letter-spacing);
   line-height: var(--ls-font-line-height);
   font-size: var(--ls-page-text-size);
