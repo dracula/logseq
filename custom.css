@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 :root {
   --background: #282a36;
@@ -27,7 +27,9 @@
   --ls-page-text-size: 16px;
   --ls-page-title-size: 36px;
   --ls-font-family: "Fira Sans";
-  --ls-font-weight: 300;
+  --ls-font-weight-light: 300;
+  --ls-font-weight-regular: 400;
+  --ls-font-weight-medium: 500;
   --ls-font-letter-spacing: 0.002em;
   --ls-font-line-height: 1.5;
 
@@ -117,7 +119,7 @@ i {
 
 b {
   color: var(--orange);
-  font-weight: 700;
+  font-weight: var(--ls-font-weight-medium);
 }
 
 ol li::marker,
@@ -164,7 +166,7 @@ h1.title,
 .ls-block h5,
 .ls-block h6 {
   color: var(--purple);
-  font-weight: 700;
+  font-weight: var(--ls-font-weight-regular);
 }
 
 /* Priority tag styling */
@@ -197,7 +199,7 @@ a.priority[href="#/page/C"]:before {
 
 a.priority:before {
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: var(--ls-font-weight-regular);
   padding: 1px 4px 0px 3px;
   margin: 0px 2px 0px 0px;
   border-radius: var(--ls-border-radius-low);
@@ -226,7 +228,7 @@ a.tag {
   border-radius: 3px 3px 3px 3px;
   padding: 0px 3px;
   color: var(--dark-background);
-  font-weight: 400;
+  font-weight: var(--ls-font-weight-regular);
 }
 
 a.tag:hover {
