@@ -315,7 +315,7 @@ html[data-theme="dark"] .CodeMirror span.cm-string-2 {
   color: var(--yellow);
 }
 html[data-theme="dark"] .CodeMirror span.cm-number {
-  color: var(--purle);
+  color: var(--purple);
 }
 html[data-theme="dark"] .CodeMirror span.cm-variable {
   color: var(--green);
