@@ -379,3 +379,19 @@ html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
 .left-sidebar-inner a.item > span {
   color: var(--ls-icon-color);
 }
+
+.vc-pane-container {
+  background: var(--ls-secondary-background-color) !important;
+}
+
+.vc-highlight, .vc-dot {
+  background: var(--purple) !important;
+}
+
+.vc-highlight:hover, .vc-dot:hover {
+  background: var(--purple-hover) !important;
+}
+
+.vc-is-dark .vc-weekday {
+  background: var(--yellow) !important;
+}
