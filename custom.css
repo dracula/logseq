@@ -396,3 +396,9 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
   background: var(--green);
 }
+
+/* Dim done/canceled tasks instead of a strike */
+.canceled, .cancelled, .done {
+    opacity: 0.5;
+    text-decoration: none;
+}
