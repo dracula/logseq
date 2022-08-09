@@ -379,3 +379,20 @@ html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
 .left-sidebar-inner a.item > span {
   color: var(--ls-icon-color);
 }
+
+/* Changes the look of the progress bar */
+progress {
+  vertical-align: middle;
+  border-radius: 8px;
+  height: 0.7em;
+  border: 1px solid var(--ls-border-color);
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--ls-tertiary-background-color);
+}
+
+progress::-webkit-progress-value {
+  background: var(--green);
+}
