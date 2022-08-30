@@ -3,6 +3,7 @@
     "description": "🧛 Dark theme for Logseq.",
     "author": "slybouhafs",
     "repo": "dracula/logseq",
+    "main": "./index.html",
     "logseq": {
       "themes": [
         {
