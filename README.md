@@ -6,6 +6,8 @@
 
 Multi-color highlight support thanks to [https://github.com/DenaroCF/Highlighters-for-Logseq](https://github.com/DenaroCF/Highlighters-for-Logseq)
 
+![Highlight Screenshot](./multi-color-highlight-screenshot.png)
+
 ## Install
 
 All instructions can be also found at [draculatheme.com/logseq](https://draculatheme.com/logseq).
