@@ -167,6 +167,7 @@ h1.title,
 .ls-block h6 {
   color: var(--purple);
   font-weight: var(--ls-font-weight-regular);
+  font-family: var(--ls-font-family),-apple-system,system-ui,sans-serif;
 }
 
 /* Priority tag styling */
