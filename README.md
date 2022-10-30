@@ -14,6 +14,10 @@ All instructions can be also found at [draculatheme.com/logseq](https://draculat
 
 ### Online install:
 
+You can install this theme from the logseq marketplace.
+
+OR you can follow these old methods:
+
 - Paste this line to your `logseq/custom.css` file:
 - `@import url('https://cdn.jsdelivr.net/gh/dracula/logseq@master/custom.css');`
 
