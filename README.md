@@ -8,12 +8,6 @@
 
 All instructions can be also found at [draculatheme.com/logseq](https://draculatheme.com/logseq).
 
-### Offline install:
-
-- Copy the content of `custom.css` into `logseq/custom.css` in your notes repo if you want to have the theme available without an internet connection.
-
-### Online install:
-
 You can install this theme from the logseq marketplace.
 
 OR you can follow these old methods:
