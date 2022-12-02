@@ -403,3 +403,7 @@ progress::-webkit-progress-value {
     opacity: 0.5;
     text-decoration: none;
 }
+
+.editor-inner .uniline-block:is(.h1,.h2), .ls-block :is(h1,h2) {
+    border-bottom: none;
+}
