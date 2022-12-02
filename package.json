@@ -2,7 +2,7 @@
     "name": "logseq-dracula-theme",
     "description": "🧛 Dark theme for Logseq.",
     "author": "slybouhafs",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "repo": "dracula/logseq",
     "logseq": {
       "themes": [
