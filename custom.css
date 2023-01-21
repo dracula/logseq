@@ -2,6 +2,7 @@
 
 :root {
   --background: #282a36;
+  --background-code: #1a1e24;
   --light-background: #343746;
   --lighter-background: #424450;
   --dark-background: #21222c;
@@ -84,7 +85,7 @@ html[data-theme="dark"] {
   --ls-page-properties-background-color: var(--light-background);
 
   --ls-page-inline-code-color: var(--green);
-  --ls-page-inline-code-bg-color: var(--background);
+  --ls-page-inline-code-bg-color: var(--background-code);
 
   --ls-scrollbar-background-color: var(--background);
   --ls-scrollbar-foreground-color: var(--darker-background);
