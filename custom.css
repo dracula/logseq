@@ -287,6 +287,9 @@ html[data-theme="dark"] .CodeMirror .CodeMirror-gutter {
   /* Background color for the line numbers displayed on the left */
   background: var(--background);
 }
+html[data-theme="dark"] .CodeMirror .CodeMirror-hscrollbar {
+  margin: 4px;
+}
 html[data-theme="dark"] .CodeMirror .CodeMirror-selected {
   background: rgba(255, 255, 255, 0.1);
 }
