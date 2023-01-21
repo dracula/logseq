@@ -283,6 +283,11 @@ html[data-theme="dark"] .CodeMirror .CodeMirror-cursor {
 html[data-theme="dark"] .CodeMirror .CodeMirror-linenumber {
   color: var(--comment);
 }
+html[data-theme="dark"] .CodeMirror .CodeMirror-activeline .CodeMirror-linenumber {
+  /* Color of line number where the cursor is present */
+  color: var(--comment);
+  filter: brightness(1.4);
+}
 html[data-theme="dark"] .CodeMirror .CodeMirror-gutter {
   /* Background color for the line numbers displayed on the left */
   background: var(--background);
