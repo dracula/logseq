@@ -283,6 +283,10 @@ html[data-theme="dark"] .CodeMirror .CodeMirror-cursor {
 html[data-theme="dark"] .CodeMirror .CodeMirror-linenumber {
   color: var(--comment);
 }
+html[data-theme="dark"] .CodeMirror .CodeMirror-gutter {
+  /* Background color for the line numbers displayed on the left */
+  background: var(--background);
+}
 html[data-theme="dark"] .CodeMirror .CodeMirror-selected {
   background: rgba(255, 255, 255, 0.1);
 }
