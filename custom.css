@@ -420,3 +420,9 @@ progress::-webkit-progress-value {
 .editor-inner .uniline-block:is(.h1,.h2), .ls-block :is(h1,h2) {
     border-bottom: none;
 }
+
+/* Make "New page" button opaque */
+html[data-theme="dark"] .new-page-link {
+  background: var(--background);
+  opacity: 1;
+}
