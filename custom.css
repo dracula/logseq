@@ -270,10 +270,16 @@ html[data-theme="dark"] .extensions__code-lang {
 }
 
 html[data-theme="dark"] #main-content-container code {
-  background: var(--light-background);
+  background: var(--darker-background);
+}
+html[data-theme="dark"] #main-content-container .selected code {
+  background: var(--background);
 }
 html[data-theme="dark"] #right-sidebar-container code {
   background: var(--light-background);
+}
+html[data-theme="dark"] #right-sidebar-container .selected code {
+  background: var(--background);
 }
 
 html[data-theme="dark"] .CodeMirror {
