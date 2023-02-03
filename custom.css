@@ -269,6 +269,19 @@ html[data-theme="dark"] .extensions__code-lang {
   background: var(--light-background);
 }
 
+html[data-theme="dark"] #main-content-container code {
+  background: var(--darker-background);
+}
+html[data-theme="dark"] #main-content-container .selected code {
+  background: var(--background);
+}
+html[data-theme="dark"] #right-sidebar-container code {
+  background: var(--light-background);
+}
+html[data-theme="dark"] #right-sidebar-container .selected code {
+  background: var(--background);
+}
+
 html[data-theme="dark"] .CodeMirror {
   border: 5px solid var(--light-background);
 }
@@ -281,6 +294,18 @@ html[data-theme="dark"] .CodeMirror .CodeMirror-cursor {
 }
 html[data-theme="dark"] .CodeMirror .CodeMirror-linenumber {
   color: var(--comment);
+}
+html[data-theme="dark"] .CodeMirror .CodeMirror-activeline .CodeMirror-linenumber {
+  /* Color of line number where the cursor is present */
+  color: var(--comment);
+  filter: brightness(1.4);
+}
+html[data-theme="dark"] .CodeMirror .CodeMirror-gutter {
+  /* Background color for the line numbers displayed on the left */
+  background: var(--background);
+}
+html[data-theme="dark"] .CodeMirror .CodeMirror-hscrollbar {
+  margin: 4px;
 }
 html[data-theme="dark"] .CodeMirror .CodeMirror-selected {
   background: rgba(255, 255, 255, 0.1);
@@ -406,4 +431,10 @@ progress::-webkit-progress-value {
 
 .editor-inner .uniline-block:is(.h1,.h2), .ls-block :is(h1,h2) {
     border-bottom: none;
+}
+
+/* Make "New page" button opaque */
+html[data-theme="dark"] .new-page-link {
+  background: var(--background);
+  opacity: 1;
 }
