@@ -396,6 +396,18 @@ html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
   background: transparent;
 }
 
+/* Fixes logseq calculator mode to line up with our spacing */
+.extensions__code-calc {
+  padding: 28px 0 0.25em;
+  background: var(--light-background);
+  line-height: 1.2;
+}
+
+.extensions__code-calc-output-line {
+  height: 16.8px !important;
+  padding-right: 5px;
+}
+
 /* Changes all icons to the same color */
 .ti {
   color: var(--ls-icon-color);
