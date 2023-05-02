@@ -12,6 +12,8 @@
           "description": "🧛 Dark theme for Logseq.",
           "mode": "dark"
         }
-     ]
+     ],
+    "id": "dracula_logseq",
+    "icon": "./icon.png"
     }
   }
