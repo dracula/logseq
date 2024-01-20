@@ -3,7 +3,7 @@
 > A dark theme for [Logseq](http://logseq.com).
 
 > [!WARNING]
-> This is not compatible with Logseq 0.10.4. If you want to keep using this theme, stay on 0.10.3.
+> This is not  compatible with Logseq 0.10.4 yet. If you want to keep using this theme, stay on 0.10.3.
 
 ![Screenshot](./screenshot.png)
 
