@@ -6,10 +6,9 @@
   --lighter-background: #424450;
   --dark-background: #21222c;
   --darker-background: #191a21;
-  --foreground: #f8f8f2;
   --current-line: #44475a;
   --comment: #6272a4;
-  --white: var(--foreground);
+  --white: #f8f8f2;
   --white-hover: #f8f8f280;
   --red: #ff5555;
   --orange: #ffb86c;
@@ -39,6 +38,8 @@
 
 .dark-theme,
 html[data-theme="dark"] {
+  --foreground: var(--white);
+
   --ls-primary-background-color: var(--background);
   --ls-secondary-background-color: var(--dark-background);
   --ls-tertiary-background-color: var(--light-background);
@@ -129,6 +130,7 @@ ul li::marker {
 
 mark {
   background-color: var(--yellow);
+  color: var(--darker-background);
 }
 
 .bg-orange-400 {
