@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
-:root {
+.dark-theme,
+html[data-theme="dark"] {
   --background: #282a36;
   --light-background: #343746;
   --lighter-background: #424450;
@@ -34,10 +35,7 @@
 
   --ls-border-radius-low: 3px;
   --ls-border-radius-medium: 6px;
-}
 
-.dark-theme,
-html[data-theme="dark"] {
   --foreground: var(--white);
 
   --ls-primary-background-color: var(--background);
