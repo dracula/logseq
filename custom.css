@@ -53,6 +53,7 @@ html[data-theme="dark"] {
   --ls-search-background-color: var(--background);
   --ls-border-color: var(--comment);
   --ls-secondary-border-color: var(--ls-border-color);
+  --ls-menu-color: var(--dark-background);  
   --ls-menu-hover-color: var(--light-background);
   --ls-table-tr-even-background-color: var(--light-background);
 
@@ -416,6 +417,25 @@ html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
 /* Changes sidebar link colors to the same color as the icons */
 .left-sidebar-inner a.item > span {
   color: var(--ls-icon-color);
+}
+
+/* Menu and dropdown styling */
+.menu-links-wrapper,
+.menu-link {
+  background-color: var(--ls-menu-color);
+}
+
+.menu-link:hover {
+  background-color: var(--ls-menu-hover-color);
+}
+
+.menu-link.chosen {
+  background-color: var(--ls-menu-hover-color);
+}
+
+.dropdown-wrapper {
+  border: 1px solid;
+  border-color: var(--ls-border-color);
 }
 
 /* Changes the look of the progress bar */
