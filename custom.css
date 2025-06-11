@@ -53,6 +53,7 @@ html[data-theme="dark"] {
   --ls-search-background-color: var(--background);
   --ls-border-color: var(--comment);
   --ls-secondary-border-color: var(--ls-border-color);
+  --ls-menu-color: var(--dark-background);
   --ls-menu-hover-color: var(--light-background);
   --ls-table-tr-even-background-color: var(--light-background);
 
@@ -167,14 +168,15 @@ h1.title,
 .ls-block h6 {
   color: var(--purple);
   font-weight: var(--ls-font-weight-regular);
-  font-family: var(--ls-font-family),-apple-system,system-ui,sans-serif;
+  font-family: var(--ls-font-family), -apple-system, system-ui, sans-serif;
 }
 
 /* Priority tag styling */
 .priority {
   color: var(--ls-tag-text-color);
   opacity: 1 !important;
-  font-size: 0px; /* Hide text */
+  font-size: 0px;
+  /* Hide text */
 }
 
 .priority:hover,
@@ -272,12 +274,15 @@ html[data-theme="dark"] .extensions__code-lang {
 html[data-theme="dark"] #main-content-container code {
   background: var(--darker-background);
 }
+
 html[data-theme="dark"] #main-content-container .selected code {
   background: var(--background);
 }
+
 html[data-theme="dark"] #right-sidebar-container code {
   background: var(--light-background);
 }
+
 html[data-theme="dark"] #right-sidebar-container .selected code {
   background: var(--background);
 }
@@ -289,24 +294,30 @@ html[data-theme="dark"] .CodeMirror {
 html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
   color: var(--background);
 }
+
 html[data-theme="dark"] .CodeMirror .CodeMirror-cursor {
   border-left: solid thin var(--white);
 }
+
 html[data-theme="dark"] .CodeMirror .CodeMirror-linenumber {
   color: var(--comment);
 }
+
 html[data-theme="dark"] .CodeMirror .CodeMirror-activeline .CodeMirror-linenumber {
   /* Color of line number where the cursor is present */
   color: var(--comment);
   filter: brightness(1.4);
 }
+
 html[data-theme="dark"] .CodeMirror .CodeMirror-gutter {
   /* Background color for the line numbers displayed on the left */
   background: var(--background);
 }
+
 html[data-theme="dark"] .CodeMirror .CodeMirror-hscrollbar {
   margin: 4px;
 }
+
 html[data-theme="dark"] .CodeMirror .CodeMirror-selected {
   background: rgba(255, 255, 255, 0.1);
 }
@@ -316,69 +327,78 @@ html[data-theme="dark"] .CodeMirror .CodeMirror-line {
 }
 
 html[data-theme="dark"] .CodeMirror .CodeMirror-line::selection,
-html[data-theme="dark"] .CodeMirror .CodeMirror-line > span::selection,
-html[data-theme="dark"]
-  .cm-s-default
-  .CodeMirror-line
-  > span
-  > span::selection {
+html[data-theme="dark"] .CodeMirror .CodeMirror-line>span::selection,
+html[data-theme="dark"] .cm-s-default .CodeMirror-line>span>span::selection {
   background: rgba(255, 255, 255, 0.1);
 }
+
 html[data-theme="dark"] .CodeMirror .CodeMirror-line::-moz-selection,
-html[data-theme="dark"] .CodeMirror .CodeMirror-line > span::-moz-selection,
-html[data-theme="dark"]
-  .cm-s-default
-  .CodeMirror-line
-  > span
-  > span::-moz-selection {
+html[data-theme="dark"] .CodeMirror .CodeMirror-line>span::-moz-selection,
+html[data-theme="dark"] .cm-s-default .CodeMirror-line>span>span::-moz-selection {
   background: rgba(255, 255, 255, 0.1);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-comment {
   color: var(--comment);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-string,
 html[data-theme="dark"] .CodeMirror span.cm-string-2 {
   color: var(--yellow);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-number {
   color: var(--purple);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-variable {
   color: var(--green);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-variable-2 {
   color: var(--white);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-def {
   color: var(--green);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-operator {
   color: var(--pink);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-keyword {
   color: var(--pink);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-atom {
   color: var(--purple);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-meta {
   color: var(--white);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-tag {
   color: var(--pink);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-attribute {
   color: var(--green);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-qualifier {
   color: var(--green);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-property {
   color: var(--cyan);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-builtin {
   color: var(--green);
 }
+
 html[data-theme="dark"] .CodeMirror span.cm-variable-3,
 html[data-theme="dark"] .CodeMirror span.cm-type {
   color: var(--orange);
@@ -387,6 +407,7 @@ html[data-theme="dark"] .CodeMirror span.cm-type {
 html[data-theme="dark"] .CodeMirror .CodeMirror-activeline-background {
   background: rgba(255, 255, 255, 0.1);
 }
+
 html[data-theme="dark"] .CodeMirror .CodeMirror-matchingbracket {
   text-decoration: underline;
   color: var(--white) !important;
@@ -414,8 +435,27 @@ html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
 }
 
 /* Changes sidebar link colors to the same color as the icons */
-.left-sidebar-inner a.item > span {
+.left-sidebar-inner a.item>span {
   color: var(--ls-icon-color);
+}
+
+/* Menu and dropdown styling */
+.menu-links-wrapper,
+.menu-link {
+  background-color: var(--ls-menu-color);
+}
+
+.menu-link:hover {
+  background-color: var(--ls-menu-hover-color);
+}
+
+.menu-link.chosen {
+  background-color: var(--ls-menu-hover-color);
+}
+
+.dropdown-wrapper {
+  border: 1px solid;
+  border-color: var(--ls-border-color);
 }
 
 /* Changes the look of the progress bar */
@@ -436,13 +476,16 @@ progress::-webkit-progress-value {
 }
 
 /* Dim done/canceled tasks instead of a strike */
-.canceled, .cancelled, .done {
-    opacity: 0.5;
-    text-decoration: none;
+.canceled,
+.cancelled,
+.done {
+  opacity: 0.5;
+  text-decoration: none;
 }
 
-.editor-inner .uniline-block:is(.h1,.h2), .ls-block :is(h1,h2) {
-    border-bottom: none;
+.editor-inner .uniline-block:is(.h1, .h2),
+.ls-block :is(h1, h2) {
+  border-bottom: none;
 }
 
 /* Make "New page" button opaque */
