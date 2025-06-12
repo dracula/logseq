@@ -70,7 +70,7 @@ html[data-theme="dark"] {
   --ls-tag-text-hover-color: var(--purple-hover);
 
   --ls-block-bullet-border-color: var(--current-line);
-  --ls-block-bullet-color: var(--foreground);
+  --ls-block-bullet-color: var(--lx-gray-08,var(--rx-gray-08));
   --ls-block-highlight-color: var(--current-line);
   --ls-block-properties-background-color: var(--light-background);
 
