@@ -1,27 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
+/* ==========================================================================
+   Dracula palette
+
+   Namespaced on purpose. Logseq 2.x owns the bare names --background,
+   --foreground, --primary, --border, --accent, --muted, --card, --popover,
+   --input and --ring, and expects them to hold *HSL channel triples*
+   ("231 15% 18%") that it feeds to hsl(). Assigning a hex to any of them
+   produces hsl(#282a36), which is invalid and silently drops the whole
+   declaration.
+   ========================================================================== */
+
+:root {
+  --dracula-bg: #282a36;
+  --dracula-bg-light: #343746;
+  --dracula-bg-lighter: #424450;
+  --dracula-bg-dark: #21222c;
+  --dracula-bg-darker: #191a21;
+  --dracula-current-line: #44475a;
+  --dracula-comment: #6272a4;
+  --dracula-fg: #f8f8f2;
+  --dracula-fg-dim: #f8f8f280;
+  --dracula-red: #ff5555;
+  --dracula-orange: #ffb86c;
+  --dracula-yellow: #f1fa8c;
+  --dracula-green: #50fa7b;
+  --dracula-purple: #bd93f9;
+  --dracula-purple-dim: #bd93f980;
+  --dracula-cyan: #8be9fd;
+  --dracula-cyan-dim: #8be9fd80;
+  --dracula-pink: #ff79c6;
+  --dracula-pink-dim: #ff79c680;
+}
+
+/* ==========================================================================
+   Theme tokens
+
+   Selector notes — these matter, the theme was invisible in Logseq 2.x
+   without them:
+
+   * Logseq always sets data-color on <html> (defaults to "logseq"), so its
+     own variables live at html[data-theme=dark][data-color=logseq], which is
+     specificity (0,2,1). A plain html[data-theme="dark"] block is (0,1,1)
+     and loses every declaration.
+   * For non-default accents Logseq writes the --lx-* tokens onto <body> via
+     html[data-color=X] body — (0,1,2). Hence the body-scoped selector below
+     at (0,2,2).
+   * The trailing `.dark-theme, html[data-theme="dark"]` keeps Logseq 0.10.x
+     working, where only the legacy --ls-* layer exists.
+   ========================================================================== */
+
+html[data-theme="dark"][data-color],
+html[data-theme="dark"][data-color] body,
 .dark-theme,
 html[data-theme="dark"] {
-  --background: #282a36;
-  --light-background: #343746;
-  --lighter-background: #424450;
-  --dark-background: #21222c;
-  --darker-background: #191a21;
-  --current-line: #44475a;
-  --comment: #6272a4;
-  --white: #f8f8f2;
-  --white-hover: #f8f8f280;
-  --red: #ff5555;
-  --orange: #ffb86c;
-  --yellow: #f1fa8c;
-  --green: #50fa7b;
-  --purple: #bd93f9;
-  --purple-hover: #bf93f980;
-  --cyan: #8be9fd;
-  --cyan-hover: #8be9fd80;
-  --pink: #ff79c6;
-  --pink-hover: #ff79c680;
-
+  /* ---- Typography & metrics ------------------------------------------- */
   --ls-tag-text-opacity: 0.8;
   --ls-tag-text-hover-opacity: 0.8;
   --ls-page-text-size: 16px;
@@ -35,73 +68,178 @@ html[data-theme="dark"] {
 
   --ls-border-radius-low: 3px;
   --ls-border-radius-medium: 6px;
+  --radius: 6px;
 
-  --foreground: var(--white);
+  /* ---- Radix-style semantic scale (Logseq 2.x) ------------------------
+     This is the layer the modern UI actually reads. Tailwind resolves
+     bg-gray-01 etc. to var(--lx-gray-01, var(--ls-*, var(--rx-gray-01))),
+     so the legacy --ls-* fallback never fires while Logseq defines --lx-*
+     itself. Steps run darkest surface (01) to highest-contrast text (12),
+     matching the Radix convention the components assume.
+     -------------------------------------------------------------------- */
+  --lx-gray-01: var(--dracula-bg);
+  --lx-gray-02: #2e313e;
+  --lx-gray-03: var(--dracula-bg-light);
+  --lx-gray-04: #3b3e4b;
+  --lx-gray-05: var(--dracula-bg-lighter);
+  --lx-gray-06: var(--dracula-current-line);
+  --lx-gray-07: #4e5573;
+  --lx-gray-08: #58648b;
+  --lx-gray-09: var(--dracula-comment);
+  --lx-gray-10: #8894b8;
+  --lx-gray-11: #b5bccf;
+  --lx-gray-12: var(--dracula-fg);
 
-  --ls-primary-background-color: var(--background);
-  --ls-secondary-background-color: var(--dark-background);
-  --ls-tertiary-background-color: var(--light-background);
-  --ls-quaternary-background-color: var(--light-background);
-  --ls-quinary-background-color: var(--darker-background);
+  --lx-gray-01-alpha: rgba(248, 248, 242, 0);
+  --lx-gray-02-alpha: rgba(248, 248, 242, 0.03);
+  --lx-gray-03-alpha: rgba(248, 248, 242, 0.06);
+  --lx-gray-04-alpha: rgba(248, 248, 242, 0.09);
+  --lx-gray-05-alpha: rgba(248, 248, 242, 0.12);
+  --lx-gray-06-alpha: rgba(248, 248, 242, 0.16);
+  --lx-gray-07-alpha: rgba(248, 248, 242, 0.22);
+  --lx-gray-08-alpha: rgba(248, 248, 242, 0.31);
+  --lx-gray-09-alpha: rgba(98, 114, 164, 0.85);
+  --lx-gray-10-alpha: rgba(136, 148, 184, 0.9);
+  --lx-gray-11-alpha: rgba(181, 188, 207, 0.93);
+  --lx-gray-12-alpha: rgba(248, 248, 242, 0.96);
 
-  --ls-active-primary-color: var(--foreground);
-  --ls-active-secondary-color: var(--foreground);
+  /* Accent runs pink — common.css reads --lx-accent-11/12 for link colors,
+     which is where Dracula's pink has always lived in this theme. */
+  --lx-accent-01: #35222c;
+  --lx-accent-02: #3f2733;
+  --lx-accent-03: #52303f;
+  --lx-accent-04: #66384c;
+  --lx-accent-05: #7a4159;
+  --lx-accent-06: #914b69;
+  --lx-accent-07: #ad577d;
+  --lx-accent-08: #d06795;
+  --lx-accent-09: var(--dracula-pink);
+  --lx-accent-10: #ff8ed0;
+  --lx-accent-11: var(--dracula-pink);
+  --lx-accent-12: #ffc3e4;
 
-  --ls-primary-text-color: var(--foreground);
-  --ls-secondary-text-color: var(--white-hover);
+  --lx-accent-01-alpha: rgba(255, 121, 198, 0.05);
+  --lx-accent-02-alpha: rgba(255, 121, 198, 0.09);
+  --lx-accent-03-alpha: rgba(255, 121, 198, 0.14);
+  --lx-accent-04-alpha: rgba(255, 121, 198, 0.19);
+  --lx-accent-05-alpha: rgba(255, 121, 198, 0.25);
+  --lx-accent-06-alpha: rgba(255, 121, 198, 0.32);
+  --lx-accent-07-alpha: rgba(255, 121, 198, 0.42);
+  --lx-accent-08-alpha: rgba(255, 121, 198, 0.56);
+  --lx-accent-09-alpha: rgba(255, 121, 198, 0.85);
+  --lx-accent-10-alpha: rgba(255, 142, 208, 0.9);
+  --lx-accent-11-alpha: rgba(255, 121, 198, 0.95);
+  --lx-accent-12-alpha: rgba(255, 195, 228, 0.96);
 
-  --ls-search-background-color: var(--background);
-  --ls-border-color: var(--comment);
+  /* Undefined by default — an explicit theming hook for menus, popovers and
+     the modal shell (resources/css/shui.css). */
+  --lx-popover-bg: var(--dracula-bg-dark);
+  --lx-pdf-container-dark-bg: var(--dracula-bg-dark);
+
+  /* ---- shadcn / Tailwind tokens ---------------------------------------
+     Bare HSL channel triples, never colors. `html * { border-color:
+     hsl(var(--border)) }` in shui.css means --border governs every border
+     in the app, so it has to be right.
+     -------------------------------------------------------------------- */
+  --background: 231 15% 18%;
+  --foreground: 60 30% 96%;
+  --card: 232 14% 15%;
+  --card-foreground: 60 30% 96%;
+  --popover: 232 14% 15%;
+  --popover-foreground: 60 30% 96%;
+  --primary: 265 89% 78%;
+  --primary-foreground: 231 15% 18%;
+  --secondary: 230 15% 24%;
+  --secondary-foreground: 60 30% 96%;
+  --muted: 231 10% 29%;
+  --muted-foreground: 225 27% 65%;
+  --destructive: 0 100% 67%;
+  --destructive-foreground: 231 15% 18%;
+  --border: 232 14% 31%;
+  --input: 232 14% 31%;
+  --ring: 265 89% 78%;
+
+  /* ---- Legacy --ls-* layer (Logseq 0.10.x, and still widely read) ------ */
+  --ls-primary-background-color: var(--dracula-bg);
+  --ls-secondary-background-color: var(--dracula-bg-dark);
+  --ls-tertiary-background-color: var(--dracula-bg-light);
+  --ls-quaternary-background-color: var(--dracula-bg-light);
+  --ls-quinary-background-color: var(--dracula-bg-darker);
+
+  --ls-active-primary-color: var(--dracula-fg);
+  --ls-active-secondary-color: var(--dracula-fg);
+
+  --ls-primary-text-color: var(--dracula-fg);
+  --ls-secondary-text-color: var(--dracula-fg-dim);
+
+  --ls-search-background-color: var(--dracula-bg);
+  --ls-border-color: var(--dracula-comment);
   --ls-secondary-border-color: var(--ls-border-color);
-  --ls-menu-color: var(--dark-background);  
-  --ls-menu-hover-color: var(--light-background);
-  --ls-table-tr-even-background-color: var(--light-background);
+  --ls-tertiary-border-color: rgba(98, 114, 164, 0.3);
+  --ls-menu-color: var(--dracula-bg-dark);
+  --ls-menu-hover-color: var(--dracula-bg-light);
+  --ls-table-tr-even-background-color: var(--dracula-bg-light);
 
-  --ls-head-text-color: var(--foreground);
-  --ls-title-text-color: var(--foreground);
+  --ls-head-text-color: var(--dracula-fg);
+  --ls-title-text-color: var(--dracula-fg);
 
-  --ls-link-text-color: var(--pink);
-  --ls-link-text-hover-color: var(--pink-hover);
+  --ls-link-text-color: var(--dracula-pink);
+  --ls-link-text-hover-color: var(--dracula-pink-dim);
 
-  --ls-link-ref-text-color: var(--pink);
-  --ls-link-ref-text-hover-color: var(--pink-hover);
+  --ls-link-ref-text-color: var(--dracula-pink);
+  --ls-link-ref-text-hover-color: var(--dracula-pink-dim);
   --ls-block-ref-link-text-color: var(--ls-border-color);
 
-  --ls-tag-text-color: var(--purple);
-  --ls-tag-text-hover-color: var(--purple-hover);
+  --ls-tag-text-color: var(--dracula-purple);
+  --ls-tag-text-hover-color: var(--dracula-purple-dim);
 
-  --ls-block-bullet-border-color: var(--current-line);
-  --ls-block-bullet-color: var(--foreground);
-  --ls-block-highlight-color: var(--current-line);
-  --ls-block-properties-background-color: var(--light-background);
+  --ls-block-bullet-border-color: var(--dracula-current-line);
+  --ls-block-bullet-color: var(--dracula-fg);
+  --ls-block-highlight-color: var(--dracula-current-line);
+  --ls-block-properties-background-color: var(--dracula-bg-light);
 
   --ls-page-checkbox-color: transparent;
-  --ls-page-checkbox-border-color: var(--comment);
+  --ls-page-checkbox-border-color: var(--dracula-comment);
 
-  --ls-page-blockquote-color: var(--foreground);
-  --ls-page-blockquote-bg-color: var(--light-background);
-  --ls-page-blockquote-border-color: var(--yellow);
-  --ls-page-properties-background-color: var(--light-background);
+  --ls-page-blockquote-color: var(--dracula-fg);
+  --ls-page-blockquote-bg-color: var(--dracula-bg-light);
+  --ls-page-blockquote-border-color: var(--dracula-yellow);
+  --ls-page-properties-background-color: var(--dracula-bg-light);
 
-  --ls-page-inline-code-color: var(--green);
-  --ls-page-inline-code-bg-color: var(--background);
+  --ls-page-inline-code-color: var(--dracula-green);
+  --ls-page-inline-code-bg-color: var(--dracula-bg);
 
-  --ls-scrollbar-background-color: var(--background);
-  --ls-scrollbar-foreground-color: var(--darker-background);
-  --ls-scrollbar-thumb-hover-color: var(--light-background);
+  --ls-page-mark-color: var(--dracula-bg-darker);
+  --ls-page-mark-bg-color: var(--dracula-yellow);
 
-  --ls-icon-color: var(--white-hover);
-  --ls-search-icon-color: var(--white-hover);
-  --ls-a-chosen-bg: var(--light-background);
-  --ls-right-sidebar-code-bg-color: var(--light-background);
-  --ls-selection-background-color: var(--comment);
+  --ls-scrollbar-background-color: var(--dracula-bg);
+  --ls-scrollbar-foreground-color: var(--dracula-bg-darker);
+  --ls-scrollbar-thumb-hover-color: var(--dracula-bg-light);
+
+  --ls-icon-color: var(--dracula-fg-dim);
+  --ls-search-icon-color: var(--dracula-fg-dim);
+  --ls-search-icon-hover-color: var(--dracula-fg);
+  --ls-a-chosen-bg: var(--dracula-bg-light);
+  --ls-right-sidebar-code-bg-color: var(--dracula-bg-light);
+  --ls-selection-background-color: var(--dracula-comment);
+  --ls-selection-text-color: var(--dracula-fg);
   --ls-slide-background-color: var(--ls-primary-background-color);
   --ls-guideline-color: var(--ls-border-color);
+  --ls-cloze-text-color: var(--dracula-cyan);
+  --ls-header-button-background: var(--dracula-bg-light);
+  --ls-left-sidebar-text-color: var(--dracula-fg);
+  --ls-focus-ring-color: rgba(189, 147, 249, 0.5);
+  --ls-button-background-hsl: 265 89% 78%;
+  --ls-button-background: hsl(var(--ls-button-background-hsl));
+  --ls-pie-bg-color: var(--dracula-bg-light);
+  --ls-pie-fg-color: var(--dracula-purple);
+
   --color-level-1: var(--ls-secondary-background-color);
   --color-level-2: var(--ls-primary-background-color);
   --color-level-3: var(--ls-quaternary-background-color);
   --color-level-4: var(--ls-tertiary-background-color);
   --color-level-5: var(--ls-quinary-background-color);
+  --color-level-6: var(--dracula-current-line);
 }
 
 html,
@@ -110,38 +248,37 @@ body {
   letter-spacing: var(--ls-font-letter-spacing);
   line-height: var(--ls-font-line-height);
   font-size: var(--ls-page-text-size);
-  background-color: #282a36;
 }
 
 i {
-  color: var(--yellow);
+  color: var(--dracula-yellow);
 }
 
 b {
-  color: var(--orange);
+  color: var(--dracula-orange);
   font-weight: var(--ls-font-weight-medium);
 }
 
 ol li::marker,
 ul li::marker {
-  color: var(--cyan);
+  color: var(--dracula-cyan);
 }
 
 mark {
-  background-color: var(--yellow);
-  color: var(--darker-background);
+  background-color: var(--dracula-yellow);
+  color: var(--dracula-bg-darker);
 }
 
 .bg-orange-400 {
-  background-color: var(--orange);
+  background-color: var(--dracula-orange);
 }
 
 .bg-green-600 {
-  background-color: var(--green);
+  background-color: var(--dracula-green);
 }
 
 .bg-red-500 {
-  background-color: var(--red);
+  background-color: var(--dracula-red);
 }
 
 .form-checkbox {
@@ -150,23 +287,31 @@ mark {
 }
 
 .external-link {
-  color: var(--cyan);
+  color: var(--dracula-cyan);
   text-decoration: none;
   border-bottom: none;
 }
 
 .external-link:hover {
-  color: var(--cyan-hover);
+  color: var(--dracula-cyan-dim);
 }
 
+/* Page titles and headings.
+   In 2.x the page title is `.ls-page-title-container`, coloured by
+   common.css:330 from --lx-gray-12 — i.e. the primary text colour, hence
+   white. Overriding it back to purple matches the headings below and the
+   repo screenshot. `h1.title` is the 0.10.x equivalent, kept for
+   compatibility. */
 h1.title,
+h1.title input,
+.ls-page-title-container,
 .ls-block h1,
 .ls-block h2,
 .ls-block h3,
 .ls-block h4,
 .ls-block h5,
 .ls-block h6 {
-  color: var(--purple);
+  color: var(--dracula-purple);
   font-weight: var(--ls-font-weight-regular);
   font-family: var(--ls-font-family),-apple-system,system-ui,sans-serif;
 }
@@ -186,17 +331,17 @@ a.tooltip-priority:hover {
 
 a.priority[href="#/page/A"]:before {
   content: "A";
-  background: var(--red);
+  background: var(--dracula-red);
 }
 
 a.priority[href="#/page/B"]:before {
   content: "B";
-  background: var(--yellow);
+  background: var(--dracula-yellow);
 }
 
 a.priority[href="#/page/C"]:before {
   content: "C";
-  background: var(--green);
+  background: var(--dracula-green);
 }
 
 a.priority:before {
@@ -212,12 +357,12 @@ a.tooltip-priority {
   color: var(--ls-tag-text-color);
 }
 
-.Tooltip__label {
-  background: var(--ls-quinary-background-color);
-}
-
-.Tooltip__label::after {
-  border-bottom-color: var(--ls-quinary-background-color);
+/* Indentation guides between bullets.
+   block.css:654 sets this from --lx-gray-04-alpha with !important, which is
+   far dimmer than the guideline colour this theme has always used. Same
+   specificity, declared later, so this wins. */
+.block-children {
+  border-left-color: var(--ls-guideline-color) !important;
 }
 
 .page-reference .bracket {
@@ -226,16 +371,16 @@ a.tooltip-priority {
 }
 
 a.tag {
-  background: var(--pink);
+  background: var(--dracula-pink);
   border-radius: 3px 3px 3px 3px;
   padding: 0px 3px;
-  color: var(--dark-background);
+  color: var(--dracula-bg-dark);
   font-weight: var(--ls-font-weight-regular);
 }
 
 a.tag:hover {
   background: transparent;
-  color: var(--pink-hover);
+  color: var(--dracula-pink-dim);
 }
 
 /*
@@ -251,59 +396,59 @@ a.tag:hover {
 */
 
 html[data-theme="dark"] .CodeMirror {
-  font-family: "FiraCode Nerd Font", "Fire Code", monospace;
+  font-family: "FiraCode Nerd Font", "Fira Code", monospace;
   line-height: 1.2;
-  background: var(--background);
+  background: var(--dracula-bg);
   box-shadow: none;
   -webkit-box-shadow: none;
-  color: var(--white);
+  color: var(--dracula-fg);
 }
 
 html[data-theme="dark"] .cm-s-default .CodeMirror,
 html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
   background-color: transparent;
-  color: var(--white) !important;
+  color: var(--dracula-fg) !important;
   border: none;
 }
 
 html[data-theme="dark"] .extensions__code-lang {
-  background: var(--light-background);
+  background: var(--dracula-bg-light);
 }
 
 html[data-theme="dark"] #main-content-container code {
-  background: var(--darker-background);
+  background: var(--dracula-bg-darker);
 }
 html[data-theme="dark"] #main-content-container .selected code {
-  background: var(--background);
+  background: var(--dracula-bg);
 }
 html[data-theme="dark"] #right-sidebar-container code {
-  background: var(--light-background);
+  background: var(--dracula-bg-light);
 }
 html[data-theme="dark"] #right-sidebar-container .selected code {
-  background: var(--background);
+  background: var(--dracula-bg);
 }
 
 html[data-theme="dark"] .CodeMirror {
-  border: 5px solid var(--light-background);
+  border: 5px solid var(--dracula-bg-light);
 }
 
 html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
-  color: var(--background);
+  color: var(--dracula-bg);
 }
 html[data-theme="dark"] .CodeMirror .CodeMirror-cursor {
-  border-left: solid thin var(--white);
+  border-left: solid thin var(--dracula-fg);
 }
 html[data-theme="dark"] .CodeMirror .CodeMirror-linenumber {
-  color: var(--comment);
+  color: var(--dracula-comment);
 }
 html[data-theme="dark"] .CodeMirror .CodeMirror-activeline .CodeMirror-linenumber {
   /* Color of line number where the cursor is present */
-  color: var(--comment);
+  color: var(--dracula-comment);
   filter: brightness(1.4);
 }
 html[data-theme="dark"] .CodeMirror .CodeMirror-gutter {
   /* Background color for the line numbers displayed on the left */
-  background: var(--background);
+  background: var(--dracula-bg);
 }
 html[data-theme="dark"] .CodeMirror .CodeMirror-hscrollbar {
   margin: 4px;
@@ -335,54 +480,54 @@ html[data-theme="dark"]
   background: rgba(255, 255, 255, 0.1);
 }
 html[data-theme="dark"] .CodeMirror span.cm-comment {
-  color: var(--comment);
+  color: var(--dracula-comment);
 }
 html[data-theme="dark"] .CodeMirror span.cm-string,
 html[data-theme="dark"] .CodeMirror span.cm-string-2 {
-  color: var(--yellow);
+  color: var(--dracula-yellow);
 }
 html[data-theme="dark"] .CodeMirror span.cm-number {
-  color: var(--purple);
+  color: var(--dracula-purple);
 }
 html[data-theme="dark"] .CodeMirror span.cm-variable {
-  color: var(--green);
+  color: var(--dracula-green);
 }
 html[data-theme="dark"] .CodeMirror span.cm-variable-2 {
-  color: var(--white);
+  color: var(--dracula-fg);
 }
 html[data-theme="dark"] .CodeMirror span.cm-def {
-  color: var(--green);
+  color: var(--dracula-green);
 }
 html[data-theme="dark"] .CodeMirror span.cm-operator {
-  color: var(--pink);
+  color: var(--dracula-pink);
 }
 html[data-theme="dark"] .CodeMirror span.cm-keyword {
-  color: var(--pink);
+  color: var(--dracula-pink);
 }
 html[data-theme="dark"] .CodeMirror span.cm-atom {
-  color: var(--purple);
+  color: var(--dracula-purple);
 }
 html[data-theme="dark"] .CodeMirror span.cm-meta {
-  color: var(--white);
+  color: var(--dracula-fg);
 }
 html[data-theme="dark"] .CodeMirror span.cm-tag {
-  color: var(--pink);
+  color: var(--dracula-pink);
 }
 html[data-theme="dark"] .CodeMirror span.cm-attribute {
-  color: var(--green);
+  color: var(--dracula-green);
 }
 html[data-theme="dark"] .CodeMirror span.cm-qualifier {
-  color: var(--green);
+  color: var(--dracula-green);
 }
 html[data-theme="dark"] .CodeMirror span.cm-property {
-  color: var(--cyan);
+  color: var(--dracula-cyan);
 }
 html[data-theme="dark"] .CodeMirror span.cm-builtin {
-  color: var(--green);
+  color: var(--dracula-green);
 }
 html[data-theme="dark"] .CodeMirror span.cm-variable-3,
 html[data-theme="dark"] .CodeMirror span.cm-type {
-  color: var(--orange);
+  color: var(--dracula-orange);
 }
 
 html[data-theme="dark"] .CodeMirror .CodeMirror-activeline-background {
@@ -390,7 +535,7 @@ html[data-theme="dark"] .CodeMirror .CodeMirror-activeline-background {
 }
 html[data-theme="dark"] .CodeMirror .CodeMirror-matchingbracket {
   text-decoration: underline;
-  color: var(--white) !important;
+  color: var(--dracula-fg) !important;
 }
 
 html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
@@ -400,7 +545,7 @@ html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
 /* Fixes logseq calculator mode to line up with our spacing */
 .extensions__code-calc {
   padding: 28px 0 0.25em;
-  background: var(--light-background);
+  background: var(--dracula-bg-light);
   line-height: 1.2;
 }
 
@@ -452,7 +597,7 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: var(--green);
+  background: var(--dracula-green);
 }
 
 /* Dim done/canceled tasks instead of a strike */
@@ -463,10 +608,4 @@ progress::-webkit-progress-value {
 
 .editor-inner .uniline-block:is(.h1,.h2), .ls-block :is(h1,h2) {
     border-bottom: none;
-}
-
-/* Make "New page" button opaque */
-html[data-theme="dark"] .new-page-link {
-  background: var(--background);
-  opacity: 1;
 }
