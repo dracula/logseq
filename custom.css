@@ -153,6 +153,11 @@ html[data-theme="dark"] {
   --secondary-foreground: 60 30% 96%;
   --muted: 231 10% 29%;
   --muted-foreground: 225 27% 65%;
+  /* Hover/active surface for menu rows and list items. Logseq's default is
+     a dark teal (colors.css: `--accent: 192 80% 10%`), which reads as a
+     foreign colour inside this theme. */
+  --accent: 232 14% 31%;
+  --accent-foreground: 60 30% 96%;
   --destructive: 0 100% 67%;
   --destructive-foreground: 231 15% 18%;
   --border: 232 14% 31%;
@@ -581,6 +586,27 @@ html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
 .dropdown-wrapper {
   border: 1px solid;
   border-color: var(--ls-border-color);
+}
+
+/* Highlighted row in menus, selects and the calendar.
+   These components carry `focus:bg-accent`, and shui.css re-declares --accent
+   *on the popup container itself* for the default preset — teal, at
+   `html[data-theme=dark][data-color=logseq] div[data-radix-menu-content]`,
+   specificity (0,3,2). Setting --accent at the root has no effect here: a
+   variable set on a nearer ancestor always wins for its descendants. The
+   override has to land on the same containers, at matching specificity. */
+html[data-theme="dark"][data-color] div[data-radix-menu-content],
+html[data-theme="dark"][data-color] div[data-radix-popper-content-wrapper],
+html[data-theme="dark"][data-color] .ui__dropdown-menu-content,
+html[data-theme="dark"][data-color] .ui__select-content,
+html[data-theme="dark"][data-color] .ui__calendar {
+  --accent: 232 14% 31%;
+  --accent-foreground: 60 30% 96%;
+  --muted: 231 10% 29%;
+}
+
+html[data-theme="dark"][data-color] .ui__button.as-outline {
+  --accent: 232 14% 31%;
 }
 
 /* Changes the look of the progress bar */
