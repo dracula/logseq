@@ -184,10 +184,14 @@ html[data-theme="dark"] {
   --secondary-foreground: 60 30% 96%;
   --muted: 231 10% 29%;
   --muted-foreground: 225 27% 65%;
-  /* Hover/active surface for menu rows and list items. Logseq's default is
-     a dark teal (colors.css: `--accent: 192 80% 10%`), which reads as a
-     foreign colour inside this theme. */
-  --accent: 232 14% 31%;
+  /* Hover/active surface for menu rows and list items.
+     Logseq's own convention for this is the *grey* ladder — shui.css:36-45
+     declares `--accent: var(--rx-gray-04-hsl)` for menus, selects and the
+     calendar. The dark teal seen in stock builds is a branded override applied
+     only under [data-color=logseq]; it is the exception, not the rule.
+     229 12% 26% is --lx-gray-04 (#3b3e4b). Chrome highlights stay neutral;
+     the pink accent ladder is reserved for links, tags and indicators. */
+  --accent: 229 12% 26%;
   --accent-foreground: 60 30% 96%;
   --destructive: 0 100% 67%;
   --destructive-foreground: 231 15% 18%;
@@ -478,30 +482,53 @@ html[data-theme="dark"] :is(.menu-link:hover, .menu-link.chosen) {
   background-color: var(--ls-menu-hover-color);
 }
 
+/* Dropdown border. Kept on --ls-border-color, the value introduced by the
+   menu/dropdown styling work in c2af500. */
 html[data-theme="dark"] .dropdown-wrapper {
   border: 1px solid;
   border-color: var(--ls-border-color);
 }
 
-/* Highlighted row in menus, selects and the calendar.
+/* Highlighted row in menus, selects, context menus and the calendar.
    These components carry `focus:bg-accent`, and shui.css re-declares --accent
    *on the popup container itself* for the default preset — teal, at
-   `html[data-theme=dark][data-color=logseq] div[data-radix-menu-content]`,
-   specificity (0,3,2). Setting --accent at the root has no effect here: a
-   variable set on a nearer ancestor always wins for its descendants. The
-   override has to land on the same containers, at matching specificity. */
+   `html[data-theme=dark][data-color=logseq] div[data-radix-menu-content]`.
+   Setting --accent at the root has no effect here: a variable set on a nearer
+   ancestor always wins for its descendants. The override has to land on the
+   same containers, at matching specificity.
+   The Radix selectors cover 2.x; .ui__dropdown-menu-content and
+   .ui__context-menu-content are the 0.10.x/og equivalents. */
 html[data-theme="dark"][data-color] div[data-radix-menu-content],
 html[data-theme="dark"][data-color] div[data-radix-popper-content-wrapper],
 html[data-theme="dark"][data-color] .ui__dropdown-menu-content,
+html[data-theme="dark"][data-color] .ui__context-menu-content,
 html[data-theme="dark"][data-color] .ui__select-content,
 html[data-theme="dark"][data-color] .ui__calendar {
-  --accent: 232 14% 31%;
+  --accent: 229 12% 26%; /* --lx-gray-04, #3b3e4b */
   --accent-foreground: 60 30% 96%;
-  --muted: 231 10% 29%;
+  --muted: 231 10% 29%; /* --lx-gray-05, matching shui.css:39 */
 }
 
+/* Outline buttons sit one step darker than menus in Logseq's own scale
+   (`--accent: 192 100% 12%` vs `190 100% 15%`), so this tracks --lx-gray-03. */
 html[data-theme="dark"][data-color] .ui__button.as-outline {
-  --accent: 232 14% 31%;
+  --accent: 230 15% 24%; /* --lx-gray-03, #343746 */
+}
+
+/* Chrome surfaces that read the *accent* ladder directly rather than --accent.
+   `bg-accent-01` is not a shadcn token: tailwind.config.js resolves it to
+   var(--lx-accent-01, …), so overriding --accent alone never reaches these.
+   With a pink accent ladder they render as an isolated maroon against
+   otherwise neutral chrome — Logseq gets away with it only because its own
+   accent is a near-neutral teal used consistently across the whole UI.
+   Surfaces stay on the grey ladder; the accent ladder is kept for links, tags
+   and selection indicators. Selectors match shui.css at equal specificity and
+   are declared later, so they win. */
+html[data-theme="dark"][data-color] .ui__button.as-ghost:hover,
+html[data-theme="dark"][data-color] .cp__themes-installed .it:hover,
+html[data-theme="dark"][data-color] .cp__themes-installed .it.is-active,
+html[data-theme="dark"][data-color] .tl-button:hover {
+  background-color: var(--lx-gray-04);
 }
 
 /* ---- 3.6 Widgets --------------------------------------------------------- */
