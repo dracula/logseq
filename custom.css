@@ -1,7 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 /* ==========================================================================
-   Dracula palette
+   Dracula for Logseq
+
+   Structure of this file:
+
+     1. Dracula palette        raw colours, the single source of truth
+     2. Dark theme tokens      palette -> Logseq's four variable layers
+     3. Component overrides    the UI that no variable reaches
+
+   The theme is dark-only (package.json: `"mode": "dark"`). Everything in
+   sections 2 and 3 is therefore scoped to `html[data-theme="dark"]` so that
+   nothing leaks into light mode. Logseq sets `data-theme` on <html> in every
+   supported version — 0.10.x (components/theme.cljs), og 1.x and 2.x — so one
+   prefix covers them all.
+
+   Do not convert these prefixes to native CSS nesting. Logseq 0.10.0-0.10.9
+   ship Electron 25/27 (Chromium 114/118), where a nested selector may not
+   begin with an element name; `i { }` inside a nesting block is a parse error
+   there and the rule is dropped silently.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Dracula palette
 
    Namespaced on purpose. Logseq 2.x owns the bare names --background,
    --foreground, --primary, --border, --accent, --muted, --card, --popover,
@@ -12,29 +33,39 @@
    ========================================================================== */
 
 :root {
+  /* ---- Specification colours ------------------------------------------
+     The canonical Dracula palette (spec.draculatheme.com). Treat these as
+     fixed; anything that needs a different shade derives one below.
+     -------------------------------------------------------------------- */
   --dracula-bg: #282a36;
+  --dracula-current-line: #44475a;
+  --dracula-fg: #f8f8f2;
+  --dracula-comment: #6272a4;
+  --dracula-cyan: #8be9fd;
+  --dracula-green: #50fa7b;
+  --dracula-orange: #ffb86c;
+  --dracula-pink: #ff79c6;
+  --dracula-purple: #bd93f9;
+  --dracula-red: #ff5555;
+  --dracula-yellow: #f1fa8c;
+
+  /* ---- Derived shades --------------------------------------------------
+     Not part of the specification. Surface steps around the background, and
+     50%-alpha variants used for hover and secondary text.
+     -------------------------------------------------------------------- */
   --dracula-bg-light: #343746;
   --dracula-bg-lighter: #424450;
   --dracula-bg-dark: #21222c;
   --dracula-bg-darker: #191a21;
-  --dracula-current-line: #44475a;
-  --dracula-comment: #6272a4;
-  --dracula-fg: #f8f8f2;
+
   --dracula-fg-dim: #f8f8f280;
-  --dracula-red: #ff5555;
-  --dracula-orange: #ffb86c;
-  --dracula-yellow: #f1fa8c;
-  --dracula-green: #50fa7b;
-  --dracula-purple: #bd93f9;
   --dracula-purple-dim: #bd93f980;
-  --dracula-cyan: #8be9fd;
   --dracula-cyan-dim: #8be9fd80;
-  --dracula-pink: #ff79c6;
   --dracula-pink-dim: #ff79c680;
 }
 
 /* ==========================================================================
-   Theme tokens
+   2. Dark theme tokens
 
    Selector notes — these matter, the theme was invisible in Logseq 2.x
    without them:
@@ -247,109 +278,173 @@ html[data-theme="dark"] {
   --color-level-6: var(--dracula-current-line);
 }
 
-html,
-body {
+/* ==========================================================================
+   3. Component overrides
+
+   Rules for UI that section 2 cannot reach — hardcoded utility classes,
+   components that ignore the token layers, and elements needing structural
+   changes as well as colour.
+
+   Every selector here is prefixed `html[data-theme="dark"]`. Without it the
+   rules apply in light mode too: either painting Dracula colours over
+   Logseq's light theme, or — for rules that reference --ls-* tokens, which
+   only exist inside section 2's dark-scoped block — resolving to an
+   undefined variable and falling back to `inherit` rather than to Logseq's
+   own value.
+   ========================================================================== */
+
+/* ---- 3.1 Base typography & inline markup -------------------------------- */
+
+html[data-theme="dark"],
+html[data-theme="dark"] body {
   font-weight: var(--ls-font-weight-light);
   letter-spacing: var(--ls-font-letter-spacing);
   line-height: var(--ls-font-line-height);
   font-size: var(--ls-page-text-size);
 }
 
-i {
+html[data-theme="dark"] i {
   color: var(--dracula-yellow);
 }
 
-b {
+html[data-theme="dark"] b {
   color: var(--dracula-orange);
   font-weight: var(--ls-font-weight-medium);
 }
 
-ol li::marker,
-ul li::marker {
+html[data-theme="dark"] :is(ol, ul) li::marker {
   color: var(--dracula-cyan);
 }
 
-mark {
+html[data-theme="dark"] mark {
   background-color: var(--dracula-yellow);
   color: var(--dracula-bg-darker);
 }
 
-.bg-orange-400 {
+/* Literal Tailwind utilities used by task/priority chips and badges. No
+   variable reaches these, so they are restated in Dracula hues. */
+html[data-theme="dark"] .bg-orange-400 {
   background-color: var(--dracula-orange);
 }
 
-.bg-green-600 {
+html[data-theme="dark"] .bg-green-600 {
   background-color: var(--dracula-green);
 }
 
-.bg-red-500 {
+html[data-theme="dark"] .bg-red-500 {
   background-color: var(--dracula-red);
 }
 
-.form-checkbox {
-  border: 1px solid var(--ls-page-checkbox-border-color) !important;
-  border-radius: var(--ls-border-radius-low) !important;
-}
+/* ---- 3.2 Links, tags & references --------------------------------------- */
 
-.external-link {
+html[data-theme="dark"] .external-link {
   color: var(--dracula-cyan);
   text-decoration: none;
   border-bottom: none;
 }
 
-.external-link:hover {
+html[data-theme="dark"] .external-link:hover {
   color: var(--dracula-cyan-dim);
 }
 
-/* Page titles and headings.
+html[data-theme="dark"] .page-reference .bracket {
+  color: var(--ls-border-color);
+  opacity: 0.8;
+}
+
+html[data-theme="dark"] a.tag {
+  background: var(--dracula-pink);
+  border-radius: 3px 3px 3px 3px;
+  padding: 0px 3px;
+  color: var(--dracula-bg-dark);
+  font-weight: var(--ls-font-weight-regular);
+}
+
+html[data-theme="dark"] a.tag:hover {
+  background: transparent;
+  color: var(--dracula-pink-dim);
+}
+
+/* ---- 3.3 Headings & page titles ------------------------------------------
    In 2.x the page title is `.ls-page-title-container`, coloured by
    common.css:330 from --lx-gray-12 — i.e. the primary text colour, hence
    white. Overriding it back to purple matches the headings below and the
    repo screenshot. `h1.title` is the 0.10.x equivalent, kept for
    compatibility. */
-h1.title,
-h1.title input,
-.ls-page-title-container,
-.ls-block h1,
-.ls-block h2,
-.ls-block h3,
-.ls-block h4,
-.ls-block h5,
-.ls-block h6 {
+
+html[data-theme="dark"] :is(
+  h1.title,
+  h1.title input,
+  .ls-page-title-container,
+  .ls-block h1,
+  .ls-block h2,
+  .ls-block h3,
+  .ls-block h4,
+  .ls-block h5,
+  .ls-block h6
+) {
   color: var(--dracula-purple);
   font-weight: var(--ls-font-weight-regular);
   font-family: var(--ls-font-family),-apple-system,system-ui,sans-serif;
 }
 
-/* Priority tag styling */
-.priority {
+html[data-theme="dark"] :is(
+  .editor-inner .uniline-block:is(.h1, .h2),
+  .ls-block :is(h1, h2)
+) {
+  border-bottom: none;
+}
+
+/* ---- 3.4 Blocks ---------------------------------------------------------- */
+
+html[data-theme="dark"] .form-checkbox {
+  border: 1px solid var(--ls-page-checkbox-border-color) !important;
+  border-radius: var(--ls-border-radius-low) !important;
+}
+
+/* Indentation guides between bullets.
+   block.css:654 sets this from --lx-gray-04-alpha with !important, which is
+   far dimmer than the guideline colour this theme has always used. Same
+   specificity, declared later, so this wins. */
+html[data-theme="dark"] .block-children {
+  border-left-color: var(--ls-guideline-color) !important;
+}
+
+/* Dim done/canceled tasks instead of a strike */
+html[data-theme="dark"] :is(.canceled, .cancelled, .done) {
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+/* Priority tag styling — the letter is hidden and redrawn as a coloured
+   badge through ::before. */
+html[data-theme="dark"] .priority {
   color: var(--ls-tag-text-color);
   opacity: 1 !important;
   font-size: 0px; /* Hide text */
 }
 
-.priority:hover,
-a.tooltip-priority:hover {
+html[data-theme="dark"] :is(.priority:hover, a.tooltip-priority:hover) {
   color: var(--ls-tag-text-hover-color);
   opacity: 0.5;
 }
 
-a.priority[href="#/page/A"]:before {
+html[data-theme="dark"] a.priority[href="#/page/A"]:before {
   content: "A";
   background: var(--dracula-red);
 }
 
-a.priority[href="#/page/B"]:before {
+html[data-theme="dark"] a.priority[href="#/page/B"]:before {
   content: "B";
   background: var(--dracula-yellow);
 }
 
-a.priority[href="#/page/C"]:before {
+html[data-theme="dark"] a.priority[href="#/page/C"]:before {
   content: "C";
   background: var(--dracula-green);
 }
 
-a.priority:before {
+html[data-theme="dark"] a.priority:before {
   font-size: 0.9rem;
   font-weight: var(--ls-font-weight-regular);
   padding: 1px 4px 0px 3px;
@@ -358,37 +453,89 @@ a.priority:before {
   color: var(--ls-primary-background-color);
 }
 
-a.tooltip-priority {
+html[data-theme="dark"] a.tooltip-priority {
   color: var(--ls-tag-text-color);
 }
 
-/* Indentation guides between bullets.
-   block.css:654 sets this from --lx-gray-04-alpha with !important, which is
-   far dimmer than the guideline colour this theme has always used. Same
-   specificity, declared later, so this wins. */
-.block-children {
-  border-left-color: var(--ls-guideline-color) !important;
+/* ---- 3.5 App chrome: icons, sidebar, menus ------------------------------- */
+
+/* Changes all icons to the same color */
+html[data-theme="dark"] .ti {
+  color: var(--ls-icon-color);
 }
 
-.page-reference .bracket {
-  color: var(--ls-border-color);
-  opacity: 0.8;
+/* Changes sidebar link colors to the same color as the icons */
+html[data-theme="dark"] .left-sidebar-inner a.item > span {
+  color: var(--ls-icon-color);
 }
 
-a.tag {
-  background: var(--dracula-pink);
-  border-radius: 3px 3px 3px 3px;
-  padding: 0px 3px;
-  color: var(--dracula-bg-dark);
-  font-weight: var(--ls-font-weight-regular);
+/* Menu and dropdown styling */
+html[data-theme="dark"] :is(.menu-links-wrapper, .menu-link) {
+  background-color: var(--ls-menu-color);
 }
 
-a.tag:hover {
-  background: transparent;
-  color: var(--dracula-pink-dim);
+html[data-theme="dark"] :is(.menu-link:hover, .menu-link.chosen) {
+  background-color: var(--ls-menu-hover-color);
 }
 
-/*
+html[data-theme="dark"] .dropdown-wrapper {
+  border: 1px solid;
+  border-color: var(--ls-border-color);
+}
+
+/* Highlighted row in menus, selects and the calendar.
+   These components carry `focus:bg-accent`, and shui.css re-declares --accent
+   *on the popup container itself* for the default preset — teal, at
+   `html[data-theme=dark][data-color=logseq] div[data-radix-menu-content]`,
+   specificity (0,3,2). Setting --accent at the root has no effect here: a
+   variable set on a nearer ancestor always wins for its descendants. The
+   override has to land on the same containers, at matching specificity. */
+html[data-theme="dark"][data-color] div[data-radix-menu-content],
+html[data-theme="dark"][data-color] div[data-radix-popper-content-wrapper],
+html[data-theme="dark"][data-color] .ui__dropdown-menu-content,
+html[data-theme="dark"][data-color] .ui__select-content,
+html[data-theme="dark"][data-color] .ui__calendar {
+  --accent: 232 14% 31%;
+  --accent-foreground: 60 30% 96%;
+  --muted: 231 10% 29%;
+}
+
+html[data-theme="dark"][data-color] .ui__button.as-outline {
+  --accent: 232 14% 31%;
+}
+
+/* ---- 3.6 Widgets --------------------------------------------------------- */
+
+/* Changes the look of the progress bar */
+html[data-theme="dark"] progress {
+  vertical-align: middle;
+  border-radius: 8px;
+  height: 0.7em;
+  border: 1px solid var(--ls-border-color);
+  overflow: hidden;
+}
+
+html[data-theme="dark"] progress::-webkit-progress-bar {
+  background: var(--ls-tertiary-background-color);
+}
+
+html[data-theme="dark"] progress::-webkit-progress-value {
+  background: var(--dracula-green);
+}
+
+/* Fixes logseq calculator mode to line up with our spacing */
+html[data-theme="dark"] .extensions__code-calc {
+  padding: 28px 0 0.25em;
+  background: var(--dracula-bg-light);
+  line-height: 1.2;
+}
+
+html[data-theme="dark"] .extensions__code-calc-output-line {
+  height: 16.8px !important;
+  padding-right: 5px;
+}
+
+/* ---- 3.7 CodeMirror -------------------------------------------------------
 
     Name:       Dracula for CodeMirror
     Author:     Michael Kaminsky (http://github.com/mkaminsky11)
@@ -398,7 +545,7 @@ a.tag:hover {
     Original dracula color scheme by Zeno Rocha (https://github.com/zenorocha/dracula-theme)
     Adapted for logseq
 
-*/
+   -------------------------------------------------------------------------- */
 
 html[data-theme="dark"] .CodeMirror {
   font-family: "FiraCode Nerd Font", "Fira Code", monospace;
@@ -545,93 +692,4 @@ html[data-theme="dark"] .CodeMirror .CodeMirror-matchingbracket {
 
 html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
   background: transparent;
-}
-
-/* Fixes logseq calculator mode to line up with our spacing */
-.extensions__code-calc {
-  padding: 28px 0 0.25em;
-  background: var(--dracula-bg-light);
-  line-height: 1.2;
-}
-
-.extensions__code-calc-output-line {
-  height: 16.8px !important;
-  padding-right: 5px;
-}
-
-/* Changes all icons to the same color */
-.ti {
-  color: var(--ls-icon-color);
-}
-
-/* Changes sidebar link colors to the same color as the icons */
-.left-sidebar-inner a.item > span {
-  color: var(--ls-icon-color);
-}
-
-/* Menu and dropdown styling */
-.menu-links-wrapper,
-.menu-link {
-  background-color: var(--ls-menu-color);
-}
-
-.menu-link:hover {
-  background-color: var(--ls-menu-hover-color);
-}
-
-.menu-link.chosen {
-  background-color: var(--ls-menu-hover-color);
-}
-
-.dropdown-wrapper {
-  border: 1px solid;
-  border-color: var(--ls-border-color);
-}
-
-/* Highlighted row in menus, selects and the calendar.
-   These components carry `focus:bg-accent`, and shui.css re-declares --accent
-   *on the popup container itself* for the default preset — teal, at
-   `html[data-theme=dark][data-color=logseq] div[data-radix-menu-content]`,
-   specificity (0,3,2). Setting --accent at the root has no effect here: a
-   variable set on a nearer ancestor always wins for its descendants. The
-   override has to land on the same containers, at matching specificity. */
-html[data-theme="dark"][data-color] div[data-radix-menu-content],
-html[data-theme="dark"][data-color] div[data-radix-popper-content-wrapper],
-html[data-theme="dark"][data-color] .ui__dropdown-menu-content,
-html[data-theme="dark"][data-color] .ui__select-content,
-html[data-theme="dark"][data-color] .ui__calendar {
-  --accent: 232 14% 31%;
-  --accent-foreground: 60 30% 96%;
-  --muted: 231 10% 29%;
-}
-
-html[data-theme="dark"][data-color] .ui__button.as-outline {
-  --accent: 232 14% 31%;
-}
-
-/* Changes the look of the progress bar */
-progress {
-  vertical-align: middle;
-  border-radius: 8px;
-  height: 0.7em;
-  border: 1px solid var(--ls-border-color);
-  overflow: hidden;
-}
-
-progress::-webkit-progress-bar {
-  background: var(--ls-tertiary-background-color);
-}
-
-progress::-webkit-progress-value {
-  background: var(--dracula-green);
-}
-
-/* Dim done/canceled tasks instead of a strike */
-.canceled, .cancelled, .done {
-    opacity: 0.5;
-    text-decoration: none;
-}
-
-.editor-inner .uniline-block:is(.h1,.h2), .ls-block :is(h1,h2) {
-    border-bottom: none;
 }
